@@ -1,3 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Comfortaa", Courier, monospace;
+    background-color: #171820;
+    color: white;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    pointer-events: none;
+    width: 100vw;
+    left: 0;
+    padding: 1.5vw;
+}
+
+.navbar > * {
+    pointer-events: auto;
+}
+
+.title {
+    font-size: 2vw;
+    font-weight: 900;
+    width: fit-content;
+    height: fit-content;
+    margin-right: 20vw;
+}
+
+.header {
+    font-size: 1vw;
+    margin: 0;
+}
+
+.header-bt {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 1vh;
+}
+
+.header-bt:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.header-bt:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.page-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    width: 100vw;
+}
+
+.background-1 {
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
 }
