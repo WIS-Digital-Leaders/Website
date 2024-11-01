@@ -25,6 +25,7 @@ html {
     width: 100vw;
     left: 0;
     padding: 1.5vw;
+    align-items: center;
 }
 
 .navbar > * {
@@ -36,7 +37,7 @@ html {
     font-weight: 900;
     width: fit-content;
     height: fit-content;
-    margin-right: 20vw;
+    margin-right: 10vw;
 }
 
 .header {
@@ -48,7 +49,7 @@ html {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    margin-bottom: 1vh;
+    margin-right: 3vw;
 }
 
 .header-bt:after {
