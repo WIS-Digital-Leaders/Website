@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body {
     font-family: "Comfortaa", Courier, monospace;
-    background-color: #171820;
+    background-color: #000;
     color: white;
     overflow-x: hidden;
 }
@@ -54,7 +54,7 @@ html {
 
 .header-bt:after {
     background: none repeat scroll 0 0 transparent;
-    bottom: 0;
+    bottom: -1;
     content: "";
     display: block;
     height: 3px;
@@ -82,11 +82,36 @@ html {
     width: 100vw;
 }
 
-.background-1 {
-    opacity: 0.6;
-    position: absolute;
+.background {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    animation: slideBg 10s infinite;
+    z-index: -10;
+}
+
+.background-img {
+    opacity: 0.5;
     left: 0;
     top: 0;
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+@keyframes slideBg {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100vw);
+    }
+    50% {
+        transform: translateX(-200vw);
+    }
+    75% {
+        transform: translateX(-300vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
