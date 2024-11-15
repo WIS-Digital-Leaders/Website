@@ -5,8 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Digital Leaders website</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     </head>
     <body>
+        <!--The background for whole page, slideshow of images-->
+        <!--Change the picsum links to actual images of digital leaders-->
         <div class="background">
             <img
                 class="background-img"
@@ -25,23 +29,34 @@
                 src="https://picsum.photos/1000/500"
                 alt>
         </div>
+        <!--Navigation Bar-->
         <div class="navbar">
-            <div class="title">Digital Leaders</div>
-            <ul class="header">
-                <li class="header-bt">About</li>
+            <div class="header">
+                <div class="logo"></div>
+                <div class="header-bt">About</div>
 
-                <li class="header-bt">Events</li>
+                <div class="header-bt">Events</div>
 
-                <li class="header-bt">Gallery</li>
+                <div class="header-bt">Gallery</div>
 
-                <li class="header-bt">Contact</li>
-            </ul>
+                <div class="header-bt">Contact</div>
+            </div>
+            <div class="box">
+                <form name="search">
+                    <input type="text" class="input" name="txt"
+                        onmouseout="this.value = ''; this.blur();">
+                </form>
+                <i class="fas fa-search"></i>
+
+            </div>
         </div>
+        <!--Main page-->
         <div class="main">
+            <!--Pages to put stuff-->
             <div class="page-1">
                 <h1>Hello world 1</h1>
             </div>
-            <div class="page-1">
+            <div class="page-1  ">
                 <h1>Hello world 2</h1>
             </div>
         </div>
