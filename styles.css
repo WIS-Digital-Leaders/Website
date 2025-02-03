@@ -157,3 +157,11 @@ html {
     opacity: 0;
     z-index: -1;
 }
+.nav-button {
+    color: #fff;
+    text-decoration: none;
+}
+.nav-button-selected {
+    color: #ff00ff;
+    text-decoration: none;
+}
