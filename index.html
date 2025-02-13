@@ -9,76 +9,78 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     </head>
     <body>
-        <!--The background for whole page, slideshow of images-->
-        <!--Change the picsum links to actual images of digital leaders-->
-        <div class="background">
-            <img
-                class="background-img"
-                src="https://picsum.photos/1000/500"
-                alt>
-            <img
-                class="background-img"
-                src="https://picsum.photos/1000/500"
-                alt>
-            <img
-                class="background-img"
-                src="https://picsum.photos/1000/500"
-                alt>
-            <img
-                class="background-img"
-                src="https://picsum.photos/1000/500"
-                alt>
-        </div>
-        <!--Navigation Bar-->
-        <div class="navbar">
-            <div class="header">
-                <div>
-                    <a href="index.html">
-                        <img class="logo"
-                            src="Wislogo.png">
-                    </a>
-                </div>
+        <div class="content">
+            <!--The background for whole page, slideshow of images-->
+            <!--Change the picsum links to actual images of digital leaders-->
+            <div class="background">
+                <img
+                    class="background-img"
+                    src="https://picsum.photos/1000/500"
+                    alt>
+                <img
+                    class="background-img"
+                    src="https://picsum.photos/1000/500"
+                    alt>
+                <img
+                    class="background-img"
+                    src="https://picsum.photos/1000/500"
+                    alt>
+                <img
+                    class="background-img"
+                    src="https://picsum.photos/1000/500"
+                    alt>
+            </div>
+            <!--Navigation Bar-->
+            <div class="navbar">
+                <div class="header">
+                    <div>
+                        <a href="index.html">
+                            <img class="logo"
+                                src="Wislogo.png">
+                        </a>
+                    </div>
 
-                <div class="header-bt">
-                    <a href="About.html" class="nav-button">
-                        Welcome
-                    </a>
-                </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('/About.html')" class="nav-button">
+                            Welcome
+                        </a>
+                    </div>
 
-                <div class="header-bt">
-                    <a href="Mission.html" class="nav-button">
-                        Our Mission
-                    </a>
-                </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('/Mission.html')"
+                            class="nav-button">
+                            Our Mission
+                        </a>
+                    </div>
 
-                <div class="header-bt">
-                    <a href="Events.html" class="nav-button">
-                        Previous Events
-                    </a>
+                    <div class="header-bt">
+                        <a onclick="navigate('/Events.html')"
+                            class="nav-button">
+                            Previous Events
+                        </a>
+                    </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('/Contact.html')"
+                            class="nav-button">
+                            Contact Us
+                        </a>
+                    </div>
                 </div>
-                <div class="header-bt">
-                    <a href="Contact.html" class="nav-button">
-                        Contact Us
-                    </a>
+                <div class="box">
+                    <form name="search">
+                        <input type="text" class="input" name="txt"
+                            onmouseout="this.value = ''; this.blur();">
+                    </form>
+                    <i class="fas fa-search"></i>
+
                 </div>
             </div>
-            <div class="box">
-                <form name="search">
-                    <input type="text" class="input" name="txt"
-                        onmouseout="this.value = ''; this.blur();">
-                </form>
-                <i class="fas fa-search"></i>
-
-            </div>
-        </div>
-        <!--Main page-->
-        <div class="main">
-            <!--Pages to put stuff-->
-            <div class="page-1">
-                <h1>Hello world 1</h1>
-            </div>
-            <div class="page-1  ">
-                <h1>Hello world 2</h1>
+            <!--Main page-->
+            <div class="main">
+                <!--Pages to put stuff-->
+                <div class="page-1">
+                    <h1>Hello world 1</h1>
+                </div>
             </div>
         </div>
         <script src="script.js"></script>
