@@ -4,6 +4,12 @@ body {
     background-color: #000;
     color: white;
     overflow-x: hidden;
+    animation: fadein 1s ease;
+}
+
+.body {
+    animation: slideInFromBottom 1s ease;
+    animation-fill-mode: forwards;
 }
 
 * {
@@ -38,20 +44,26 @@ html {
     justify-content: space-between;
 }
 
-.header-bt:nth-child(2) {
-    animation-delay: 0.2s;
+.header-bt-animation {
+    animation: FlyIn 1s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
-.header-bt:nth-child(3) {
-    animation-delay: 0.4s;
+
+.header-bt-animation:nth-child(2) {
+    animation-delay: 1.2s;
 }
-.header-bt:nth-child(4) {
-    animation-delay: 0.6s;
+.header-bt-animation:nth-child(3) {
+    animation-delay: 1.4s;
 }
-.header-bt:nth-child(5) {
-    animation-delay: 0.8s;
+.header-bt-animation:nth-child(4) {
+    animation-delay: 1.6s;
 }
-.header-bt:nth-child(6) {
-    animation-delay: 1s;
+.header-bt-animation:nth-child(5) {
+    animation-delay: 1.8s;
+}
+.header-bt-animation:nth-child(6) {
+    animation-delay: 2s;
 }
 
 .navbar > * {
@@ -71,9 +83,6 @@ html {
     cursor: pointer;
     display: inline-block;
     margin-top: 1.5vw;
-    animation: FlyIn 1s ease-in-out;
-    opacity: 0;
-    animation-fill-mode: forwards;
 }
 
 .header-bt:after {
@@ -176,6 +185,24 @@ html {
 
 .slide-up {
     transform: translateY(-100%);
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideBg {

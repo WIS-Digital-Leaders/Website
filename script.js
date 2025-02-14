@@ -3,5 +3,5 @@ function navigate(page) {
     content.classList.add("slide-up");
     setTimeout(() => {
         window.location.href = page;
-    }, 1500);
+    }, 1000);
 }
