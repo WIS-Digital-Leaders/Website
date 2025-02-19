@@ -5,32 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Digital Leaders website</title>
         <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <!-- Update to latest PyScript CDN links -->
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     </head>
     <body>
         <div class="content">
             <!--The background for whole page, slideshow of images-->
             <!--Change the picsum links to actual images of digital leaders-->
-            <div class="background">
-                <img
-                    class="background-img"
-                    src="https://picsum.photos/1000/500"
-                    alt>
-                <img
-                    class="background-img"
-                    src="https://picsum.photos/900/450"
-                    alt>
-                <img
-                    class="background-img"
-                    src="https://picsum.photos/800/400"
-                    alt>
-                <img
-                    class="background-img"
-                    src="https://picsum.photos/700/350"
-                    alt>
-            </div>
             <!--Navigation Bar-->
             <div class="navbar">
                 <div class="header">
@@ -38,11 +21,8 @@
                         <a>
                             <img class="logo"
                                 src="Wislogo.png">
-                            <img class="logo"
-                                src="DigitalLeaderslogo.png">
                         </a>
                     </div>
-
                     <div class="header-bt header-bt-animation">
                         <a onclick="navigate('/About.html')" class="nav-button">
                             Welcome
@@ -80,10 +60,14 @@
             </div>
             <!--Main page-->
             <div class="main">
-                <!--Pages to put stuff-->
-                <div class="page-1">
-                    <h1>Hello world 1</h1>
-                </div>
+                <py-config>
+                    packages = []
+                </py-config>
+                
+                <py-script>
+                    from pyscript import display
+                    display("Hello World!")
+                </py-script>
             </div>
         </div>
         <script src="script.js"></script>
