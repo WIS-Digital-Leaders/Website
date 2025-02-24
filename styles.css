@@ -27,6 +27,7 @@ html {
 }
 
 .navbar {
+    background-color: #01369c;
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -80,7 +81,7 @@ html {
     width: 50px;
     height: 50px;
     margin-right: 4vw;
-    filter: drop-shadow(0px 0px 20px #ffffff95) brightness(1.25);
+    filter: drop-shadow(0px 0px 20px #ffffff) brightness(1);
 }
 
 .header-bt {
@@ -120,6 +121,10 @@ html {
 
 .main {
     width: 100vw;
+}
+
+.normaltext{
+    color: #00ff00;
 }
 
 .background {
