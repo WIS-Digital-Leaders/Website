@@ -50,32 +50,6 @@ html {
     justify-content: space-between;
 }
 
-.header-bt-animation {
-    animation: FlyIn 1s ease-in-out;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-.header-bt-animation:nth-child(2) {
-    animation-delay: 1.2s;
-}
-
-.header-bt-animation:nth-child(3) {
-    animation-delay: 1.4s;
-}
-
-.header-bt-animation:nth-child(4) {
-    animation-delay: 1.6s;
-}
-
-.header-bt-animation:nth-child(5) {
-    animation-delay: 1.8s;
-}
-
-.header-bt-animation:nth-child(6) {
-    animation-delay: 2s;
-}
-
 .navbar>* {
     pointer-events: auto;
 }
@@ -109,6 +83,31 @@ html {
 }
 
 .header-bt:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.header-bt-selected {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1vw;
+}
+
+.header-bt-selected:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -1;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: #ff0000;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.header-bt-selected:hover:after {
     width: 100%;
     left: 0;
 }
@@ -194,7 +193,7 @@ html {
 }
 
 .nav-button-selected {
-    color: #aeaeff;
+    color: #ff0000;
     text-decoration: none;
 }
 

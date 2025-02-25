@@ -1,93 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Digital Leaders website</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    </head>
-    <body class="body">
-        <div class="content">
-            <img
-                class="background-img"
-                style="position: fixed; z-index: -1;"
-                src="https://picsum.photos/900/450"
-                alt>
-            <!--Navigation Bar-->
-            <div class="navbar">
-                <div class="header">
-                    <div>
-                        <a onclick="navigate('index.html')">
-                            <img class="logo"
-                                src="Wislogo.png">
-                        </a>
-                    </div>
 
-                    <div class="header-bt">
-                        <a onclick="navigate('About.html')" class="nav-button">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Leaders website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+
+<body class="body">
+    <div class="content">
+        <img class="background-img" style="position: fixed; z-index: -1;" src="https://picsum.photos/900/450" alt>
+        <!--Navigation Bar-->
+        <div class="navbar">
+            <div class="header">
+                <div>
+                    <a onclick="navigate('index.html')">
+                        <img class="logo" src="Wislogo.png">
+                        <img class="logo" src="DigitalLeaderslogo.png">
+                    </a>
+                </div>
+
+                <div class="header-bt">
+                    <a onclick="navigate('About.html')" class="nav-button">
                             Welcome
                         </a>
-                    </div>
+                </div>
 
-                    <div class="header-bt">
-                        <a onclick="navigate('Mission.html')"
-                            class="nav-button">
+                <div class="header-bt">
+                    <a onclick="navigate('Mission.html')" class="nav-button">
                             Our Mission
                         </a>
-                    </div>
+                </div>
 
-                    <div class="header-bt">
-                        <a onclick="navigate('Events.html')"
-                            class="nav-button">
+                <div class="header-bt">
+                    <a onclick="navigate('Events.html')" class="nav-button">
                             Previous Events
                         </a>
-                    </div>
-                    <div class="header-bt">
-                        <a onclick="navigate('Contact.html')"
-                            class="nav-button-selected">
+                </div>
+                <div class="header-bt-selected">
+                    <a onclick="navigate('Contact.html')" class="nav-button-selected">
                             Contact Us
+                        </a>
+                </div>
+            </div>
+            <div class="box">
+                <form name="search">
+                    <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
+                </form>
+                <i class="fas fa-search"></i>
+
+            </div>
+        </div>
+        <!--Main page-->
+        <div class="main">
+            <!--Pages to put stuff-->
+            <div class="page-1">
+                <div class="contact-section">
+                    <h1>Reach out</h1>
+                    <div style="margin-bottom: 1vw;">Thank you for visiting the Digital Leaders website! We welcome your questions, suggestions, and collaboration ideas. Please reach out to us—we&#39;d love to hear from you!</div>
+                    <div class="social-media-bar">
+                        <a href="https://www.instagram.com/wis_digital_leaders">
+                            <div>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="mailto:wis-digitalleaders@wis.edu.hk">
+                            <div>
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
                         </a>
                     </div>
                 </div>
-                <div class="box">
-                    <form name="search">
-                        <input type="text" class="input" name="txt"
-                            onmouseout="this.value = ''; this.blur();">
-                    </form>
-                    <i class="fas fa-search"></i>
-
-                </div>
-            </div>
-            <!--Main page-->
-            <div class="main">
-                <!--Pages to put stuff-->
-                <div class="page-1">
-                    <div class="contact-section">
-                        <h1>Reach out</h1>
-                        <div style="margin-bottom: 1vw;">Thank you for visiting
-                            the Digital Leaders website!
-                            We welcome your questions, suggestions, and
-                            collaboration ideas. Please reach out to us—we&#39;d
-                            love to hear from you!</div>
-                        <div class="social-media-bar">
-                            <a href="https://www.instagram.com/wis_digital_leaders">
-                                <div>
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </a>
-                            <a href="mailto:wis-digitalleaders@wis.edu.hk">
-                                <div>
-                                    <i class="fa-regular fa-envelope"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-section"></div>
-                </div>
+                <div class="contact-section"></div>
             </div>
         </div>
-        <script src="script.js"></script>
-    </body>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>
