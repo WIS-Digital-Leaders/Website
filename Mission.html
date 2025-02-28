@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Leaders website</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Digital Leaders website</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    </head>
 
-<body class="body">
-    <div class="content">
-        <!--Navigation Bar-->
-        <div class="navbar">
-            <div class="header">
-                <div>
-                    <a onclick="navigate('index.html')">
-                        <img class="logo" src="Wislogo.png">
-                        <img class="DigitalLeaderslogo" src="DigitalLeaderslogo.png">
-                    </a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('About.html')" class="nav-button">
+    <body class="body">
+        <div class="content">
+            <!--Navigation Bar-->
+            <div class="navbar">
+                <div class="header">
+                    <div>
+                        <a onclick="navigate('index.html')">
+                            <img class="logo" src="Wislogo.png">
+                            <img class="dlogo" src="DigitalLeaderslogo.png">
+                        </a>
+                    </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('About.html')" class="nav-button">
                             Welcome
                         </a>
-                </div>
-                <div class="header-bt-selected">
-                    <a onclick="navigate('Mission.html')" class="nav-button-selected">
+                    </div>
+                    <div class="header-bt-selected">
+                        <a onclick="navigate('Mission.html')"
+                            class="nav-button-selected">
                             Our Mission
                         </a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('Events.html')" class="nav-button">
+                    </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('Events.html')" class="nav-button">
                             Previous Events
                         </a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('Contact.html')" class="nav-button">
+                    </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('Contact.html')"
+                            class="nav-button">
                             Contact Us
                         </a>
+                    </div>
+                </div>
+                <div class="box">
+                    <form name="search">
+                        <input type="text" class="input" name="txt"
+                            onmouseout="this.value = ''; this.blur();">
+                    </form>
+                    <i class="fas fa-search"></i>
                 </div>
             </div>
-            <div class="box">
-                <form name="search">
-                    <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
-                </form>
-                <i class="fas fa-search"></i>
+            <!--Main page-->
+            <div class="main">
+                <!--Pages to put stuff-->
+                <div class="page-1">
+                    <h1>Mission page here lorem ipsum dolor sit amet</h1>
+                </div>
             </div>
         </div>
-        <!--Main page-->
-        <div class="main">
-            <!--Pages to put stuff-->
-            <div class="page-1">
-                <h1>Mission page here lorem ipsum dolor sit amet</h1>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 
 </html>
