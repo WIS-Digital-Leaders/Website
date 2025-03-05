@@ -57,6 +57,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navbar > * {
@@ -83,7 +84,6 @@ html {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    margin-top: 1vw;
 }
 
 .header-bt:after {
