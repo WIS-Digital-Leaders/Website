@@ -271,6 +271,33 @@ i:nth-child(3):hover {
     color: rgba(199, 22, 16, 1);
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.scrollInBlocks{
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    margin: none;
+}
+
+.scrollInBlocks > div{
+    width: 20vw;
+    height: 100vw;
+    position: relative;
+    display: inline-block;
+    background-color: blue;
+    margin-right: -4px;
+    z-index: 999;
+}
+
+
 @keyframes slideInFromBottom {
     0% {
         transform: translateY(100%);

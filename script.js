@@ -1,5 +1,6 @@
 function navigate(page) {
     const content = document.querySelector(".content");
+    const slideInBlocks = document.querySelectorAll()
     content.classList.add("slide-up");
     setTimeout(() => {
         window.location.href = page;
