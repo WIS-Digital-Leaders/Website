@@ -1,13 +1,44 @@
+let cursor = document.getElementById("cursor");
+let slideInBlocks = document.querySelectorAll(".block");
+const timeoutLen = 200;
+
+function displayBlocks(option) {
+    if (option == "show"){
+        slideInBlocks.forEach((e,index) => {
+            e.classList.remove("hide")
+        })
+    }
+    else{
+        slideInBlocks.forEach((e,index) => {
+            e.classList.add("hide")
+        })
+    }
+}
+//Runs on page load
+displayBlocks("show");
+slideInBlocks.forEach((e, index) => {
+    setTimeout(() => {
+        e.classList.add("slide-down");
+        setTimeout(() => {
+            e.classList.add("hide")
+            e.classList.remove("slide-down");
+        },timeoutLen)
+    },timeoutLen*(index+1)); //indexed dependant delay
+});
+
+
 function navigate(page) {
-    const content = document.querySelector(".content");
-    const slideInBlocks = document.querySelectorAll()
-    content.classList.add("slide-up");
+    slideInBlocks.forEach((e, index) => {
+        setTimeout(() => {
+            e.classList.add("slide-up");
+            e.classList.remove("hide");
+        }, timeoutLen*(index+1));
+    });
     setTimeout(() => {
         window.location.href = page;
-    }, 1000);
+    }, 1500);
 }
 
-let cursor = document.getElementById("cursor");
 function isTouchDevice() {
     try {
         document.createEvent("TouchEvent");
