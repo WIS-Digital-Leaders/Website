@@ -36,7 +36,7 @@ function navigate(page) {
     });
     setTimeout(() => {
         window.location.href = page;
-    }, 1500);
+    }, 1200);
 }
 
 function isTouchDevice() {
