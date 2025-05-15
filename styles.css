@@ -34,7 +34,7 @@ html {
 }
 
 .navbar {
-    background-color: #00256a9e;
+    background-color: #01369c;
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -116,7 +116,7 @@ html {
     height: 3px;
     left: 50%;
     position: absolute;
-    background: #ff0000;
+    background: #ffffff;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
@@ -139,7 +139,7 @@ html {
 }
 
 .normaltext {
-    color: #00ff00;
+    color: #ffffff;
 }
 
 .background {
@@ -205,7 +205,7 @@ html {
 }
 
 .nav-button-selected {
-    color: #ff0000;
+    color: #ffffff;
     text-decoration: none;
 }
 
