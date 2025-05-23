@@ -4,4 +4,3 @@ Gerald Lowe
 
 Previous Devs include:
 Bob Lam
-Linus Choy
