@@ -22,7 +22,6 @@ h1 {
 
 .body {
     animation-fill-mode: forwards;
-    overflow: hidden;
 }
 
 * {
@@ -137,6 +136,7 @@ html {
 
 .main {
     width: 100vw;
+    height: auto;
 }
 
 .normaltext {
@@ -213,7 +213,6 @@ html {
 .content {
     transition: transform 1s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .slide-up {
@@ -364,4 +363,34 @@ i:nth-child(3):hover {
     100% {
         font-weight: 500;
     }
+}
+
+/*Tree*/
+
+.tree{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+
+}
+
+.node {
+    width: 440px;
+    height: 220px;
+    background-color: #8168db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.node-0 {
+    position: relative;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
 }
