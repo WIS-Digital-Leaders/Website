@@ -128,6 +128,7 @@ html {
 }
 
 .page-1 {
+    Flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
