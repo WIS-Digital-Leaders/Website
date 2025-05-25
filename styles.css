@@ -368,5 +368,136 @@ i:nth-child(3):hover {
 
 
 
+.tree{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+}
 
-/* Tree thing, not sure if it works*/
+.node {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.node > div{
+    max-width: 400px;
+    max-height: 200px;
+    background-color: #9872e0;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    transition: 0.2s ease-in-out;
+    width: 50vw;
+    height: 25vh;
+}
+
+.node-layer-1 > div{
+    background-color: #543e7c;
+}
+
+.node-layer-1 .node-0{
+    margin-right: 5%;
+}
+
+
+.node > div:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(130, 174, 218, 0.473));
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    position: absolute;
+    top: -50px;
+    bottom: 50px;
+    z-index: 4;
+    background-color: white;
+    border: 10px white solid;
+}
+
+.node .expander{
+    max-width: 90px;
+    max-height: 40px;
+    width: 10vw;
+    height: 5vh;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: -2.5vh;
+    border-radius: 5vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.node .expander .arrow{
+    max-width: 30px;
+    max-height: 30px;
+    width: 3vw;
+    height: 3vw;
+    rotate: 45deg;
+    background-color: #3b3640;
+    position: relative;
+    bottom: 0.5vw;
+}
+
+.node .expander .arrow::before{
+    content: "";
+    max-width: 30px;
+    max-height: 30px;
+    width: 3vw;
+    height: 3vw;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-5px, -5px);
+}
+
+.node .name{
+    color: #ffffff;
+    font-size: 150%;
+    position: absolute;
+    top: 55%;
+}
+
+.node .about{
+    color: #ffffff;
+    font-size: 100%;
+    position: absolute;
+    top: 75%;
+}
+
+.node > div::before{
+    content: "";
+    width: 80%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 40%;
+}
+
+.expander-3{
+    width: 80%;
+    background-color: white;
+    height: 2px;
+    display: block;
+    margin: 40px;
+}
+
+.expander-3::before{
+    content: none;
+    display: inline;
+    background-color: white;
+    height: 20px;
+    width: 2px;
+}
