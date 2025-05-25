@@ -35,7 +35,10 @@ function navigate(page) {
         }, timeoutLen*(index+1));
     });
     setTimeout(() => {
-        window.location.href = page;
+        if (page == "Mission.html"){ //TEMPORARY REDIRECT FOR DEVELOPMENT
+            window.location.href = "Renovation.html"
+        }
+        else{window.location.href = page;}
     }, 1200);
 }
 

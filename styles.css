@@ -22,7 +22,6 @@ h1 {
 
 .body {
     animation-fill-mode: forwards;
-    overflow: hidden;
 }
 
 * {
@@ -138,6 +137,7 @@ html {
 
 .main {
     width: 100vw;
+    height: auto;
 }
 
 .normaltext {
@@ -214,7 +214,6 @@ html {
 .content {
     transition: transform 1s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .slide-up {
