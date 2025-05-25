@@ -138,7 +138,6 @@ html {
 
 .main {
     width: 100vw;
-    margin-top:15%;
 }
 
 .normaltext {
@@ -372,84 +371,3 @@ i:nth-child(3):hover {
 
 
 /* Tree thing, not sure if it works*/
-/* --- Org Tree Family Tree Style --- */
-.org-tree ul {
-  padding-top: 20px;
-  position: relative;
-  display: table;
-  margin: 0 auto;
-}
-
-.org-tree ul ul {
-  padding-top: 30px;
-}
-
-.org-tree li {
-  display: table-cell;
-  text-align: center;
-  position: relative;
-  padding: 20px 10px 0 10px;
-  vertical-align: top;
-}
-
-/* Draw vertical line from parent to children */
-.org-tree li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  border-left: 2px solid #99ffd5;
-  height: 20px;
-  width: 0;
-  transform: translateX(-50%);
-}
-
-.org-tree ul > li::before {
-  display: none; /* Hide line for root node */
-}
-
-/* Draw horizontal lines between siblings */
-.org-tree ul ul::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-top: 2px solid #99ffd5;
-  height: 0;
-  z-index: 1;
-}
-
-.org-tree ul ul li:first-child::before {
-  border-radius: 5px 0 0 0;
-}
-
-.org-tree ul ul li:last-child::before {
-  border-radius: 0 5px 0 0;
-}
-
-/* Node style */
-.org-node {
-  display: inline-block;
-  border: 2px solid #99ffd5;
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: #012040;
-  color: #fff;
-  font-weight: bold;
-  margin-bottom: 8px;
-  min-width: 120px;
-  box-sizing: border-box;
-}
-
-/* Responsive: stack nodes on small screens */
-@media (max-width: 700px) {
-  .org-tree ul, .org-tree li {
-    display: block;
-  }
-  .org-node {
-    min-width: 80px;
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-}
