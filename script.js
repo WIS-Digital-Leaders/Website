@@ -67,3 +67,27 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("touchmove", (e) => {
     move(e);
 });
+document.querySelectorAll('.expander').forEach(expander => {
+    expander.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const node = expander.parentElement;
+        const infoBox = node.querySelector('.more-info');
+        if (infoBox) {
+            if (!infoBox.classList.contains('show')) {
+                infoBox.style.display = 'block';
+                setTimeout(() => infoBox.classList.add('show'), 10);
+            } else {
+                infoBox.classList.remove('show');
+                infoBox.addEventListener('transitionend', function handler() {
+                    infoBox.style.display = 'none';
+                    infoBox.removeEventListener('transitionend', handler);
+                });
+            }
+        }
+        // Optionally, toggle arrow direction here
+        const arrow = expander.querySelector('.arrow');
+        if (arrow) {
+            arrow.classList.toggle('open');
+        }
+    });
+});
