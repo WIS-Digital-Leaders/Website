@@ -516,3 +516,26 @@ i:nth-child(3):hover {
     height: 20px;
     width: 2px;
 }
+
+.more-info {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: #22232a;
+    color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    margin-top: 0.5em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+}
+.more-info.show {
+    display: block;
+    opacity: 1;
+}
+
+.arrow.open {
+    rotate: 225deg;
+    transition: rotate 0.2s;
+}
