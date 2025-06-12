@@ -545,3 +545,19 @@ i:nth-child(3):hover {
 a, a:visited, a:active, a:hover {
     cursor: pointer;
 }
+
+/* Recruitment form container spacing */
+.recruitment-form {
+    margin-top: 30% !important;
+}
+
+/* Recruitment form box styling (already present inline, but for consistency) */
+.recruitment-form form {
+    background: #004172;
+    padding: 2em;
+    border-radius: 8px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #fff;
+}
