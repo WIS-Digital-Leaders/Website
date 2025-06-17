@@ -277,15 +277,14 @@ i:nth-child(3):hover {
     display: none !important;
 }
 
-.show {
-    display: inline-block;
-}
 
 .scrollInBlocks{
     width: 100vw;
     height: 100vh;
     display: block;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    z-index: 99;
     margin: none;
     transition: transform 0.5s;
 }
