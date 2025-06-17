@@ -1,20 +1,32 @@
 let cursor = document.getElementById("cursor");
 let slideInBlocks = document.querySelectorAll(".block");
+let slideInBlockContainer = document.querySelector(".scrollInBlocks");
 const timeoutLen = 200;
 
 function displayBlocks(option) {
     if (option == "show"){
         slideInBlocks.forEach((e,index) => {
             e.classList.remove("hide")
-        })
+        });
     }
     else{
         slideInBlocks.forEach((e,index) => {
             e.classList.add("hide")
-        })
+        });
     }
 }
+
+function displayBlocksContainer(option) {
+    if (option == "show"){
+        slideInBlockContainer.classList.remove("hide");
+    }
+    else{
+        slideInBlockContainer.classList.add("hide");
+    }
+}
+
 //Runs on page load
+displayBlocksContainer("show");
 displayBlocks("show");
 slideInBlocks.forEach((e, index) => {
     setTimeout(() => {
@@ -22,12 +34,17 @@ slideInBlocks.forEach((e, index) => {
         setTimeout(() => {
             e.classList.add("hide")
             e.classList.remove("slide-down");
+            if(index == 4){
+                displayBlocksContainer("hide");
+            }
         },timeoutLen)
     },timeoutLen*(index+1)); //indexed dependant delay
 });
 
 
+
 function navigate(page) {
+    displayBlocksContainer("show");
     slideInBlocks.forEach((e, index) => {
         setTimeout(() => {
             e.classList.add("slide-up");
