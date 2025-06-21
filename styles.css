@@ -127,12 +127,18 @@ html {
 }
 
 .page-1 {
-    Flex-direction: column;
+    flex-direction: column;
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-1 h1 {
+    position: relative;
+    font-size: 400%;
+    font-family: Roboto;
 }
 
 .main {
@@ -150,6 +156,7 @@ html {
     flex-direction: row;
     animation: slideBg 10s infinite;
     z-index: -10;
+    align-items: center;
 }
 
 .background-img {
@@ -157,9 +164,10 @@ html {
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 70vh;    
+    object-fit: cover;
 }
-
+  
 .box {
     position: relative;
     right: 0;
@@ -560,3 +568,4 @@ a, a:visited, a:active, a:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     color: #fff;
 }
+
