@@ -127,12 +127,11 @@ html {
 }
 
 .page-1 {
-    Flex-direction: column;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    margin: 0 auto !important;
 }
 
 .main {
@@ -560,4 +559,30 @@ a, a:visited, a:active, a:hover {
     max-width: 650px;
     margin: 0 auto;
     color: #fff;
+}
+
+.tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tree .node {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tree .node > div, .tree .node > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2vw;
+}
+
+.tree .name, .tree .about {
+    text-align: center;
 }
