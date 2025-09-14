@@ -42,7 +42,7 @@ html {
     z-index: 10;
     pointer-events: none;
     max-width: 100vw;
-    height: 8vh;
+    height: 80px;
     left: 0;
     right: 0;
     padding: 1.5vw;
@@ -142,8 +142,10 @@ html {
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: auto;
+    height: 220vh;
 }
 
 .normaltext {
@@ -555,7 +557,7 @@ a, a:visited, a:active, a:hover {
 
 /* Recruitment form container spacing */
 .recruitment-form {
-    margin-top: 70% !important;
+    margin-top: 45% !important;
 }
 
 /* Recruitment form box styling (already present inline, but for consistency) */
@@ -565,7 +567,6 @@ a, a:visited, a:active, a:hover {
     border-radius: 8px;
     max-width: 650px;
     margin: 0 auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     color: #fff;
 }
 
