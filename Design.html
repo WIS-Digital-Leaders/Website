@@ -11,36 +11,46 @@
     <div class="content">
         <!--Navigation Bar-->
         <div class="navbar">
-            <div class="header">
-                <div>
-                    <a href="https://wisdom.wis.edu.hk">
+                <div class="header">
+                    <div>
+                        <a href="https://wisdom.wis.edu.hk">
                         <img class="logo" src="Wislogo.png">
-                    </a>
-                    <a onclick="navigate('index.html')">
-                        <img class="dlogo" src="DigitalLeaderslogo.png">
-                    </a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('About.html')" class="nav-button">About Us</a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('The Team.html')" class="nav-button">The Team</a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('Events.html')" class="nav-button">Previous Events</a>
-                </div>
-                <div class="header-bt">
-                    <a onclick="navigate('Contact.html')" class="nav-button">Contact Us</a>
+                        </a>
+                        <a onclick="navigate('index.html')">
+                            <img class="dlogo" src="DigitalLeaderslogo.png">
+                        </a>
+                    </div>
+                    <div class="header-bt">
+                        <a onclick="navigate('About.html')" class="nav-button">
+                            About Us
+                        </a>
+                    </div>
+
+                    <div class="header-bt-selected">
+                        <a onclick="navigate('The Team.html')" class="nav-button-selected">
+                            The Team
+                        </a>
+                    </div>
+
+                    <div class="header-bt">
+                        <a onclick="navigate('Events.html')" class="nav-button">
+                            Previous Events
+                        </a>
+                    </div>
+                    <div class="header-bt ">
+                        <a onclick="navigate('Contact.html')" class="nav-button">
+                            Contact Us
+                        </a>
+                    </div>
+                    <div class="box">
+                        <form name="search">
+                            <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
+                        </form>
+                        <i class="fas fa-search"></i>
+                    </div>
                 </div>
             </div>
-            <div class="box">
-                <form name="search">
-                    <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
-                </form>
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
-        <div class="main" style="width:100vw; height:100vh;">
+
             <div class="team-tree" style="margin-top: 3em;">
           <div class="node node-layer-0">
             <div class="node-0">
