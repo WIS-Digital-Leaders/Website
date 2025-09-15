@@ -38,14 +38,7 @@ html {
     display: block;
     position: fixed;
     top: 0;
-    z-index: 99;
-    pointer-events: none;
-    max-width: 100vw;
-    height: 80px;
-    left: 0;
-    right: 0;
-    padding: 1vw;
-    font-size: 1vw;;
+
 }
 
 .header {
@@ -146,6 +139,7 @@ html {
     flex-direction: column;
     width: 100vw;
     height: 220vh;
+    padding-top: 110px; /* Adjust to navbar height */
 }
 
 .normaltext {
@@ -173,6 +167,10 @@ html {
 .box {
     position: relative;
     right: 0;
+    margin-right: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .input {
@@ -199,11 +197,13 @@ html {
 .box i {
     position: absolute;
     top: 50%;
-    right: 0.8vw;
+    left: 50%;
+    right: auto;
     transform: translate(-50%, -50%);
     font-size: 1.2vw;
     color: #fff;
     transition: 0.2s;
+    pointer-events: none;
 }
 
 .box:hover i {
@@ -224,6 +224,7 @@ html {
 .content {
     transition: transform 1s ease;
     position: relative;
+    padding-top: 110px; /* Adjust to navbar height */
 }
 
 .slide-up {
