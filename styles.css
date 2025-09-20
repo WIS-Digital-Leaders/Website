@@ -42,7 +42,7 @@ html {
 }
 
 .header {
-    width: 70vw;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
