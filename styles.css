@@ -148,7 +148,6 @@ html {
     flex-direction: column;
     width: 100vw;
     height: 220vh;
-    padding-top: 110px; /* Adjust to navbar height */
 }
 
 .normaltext {
@@ -388,7 +387,7 @@ i:nth-child(3):hover {
 
 
 .tree{
-    margin-top:45%;
+    margin-top:50px;
     display: flex;
     width: 100vw;
     justify-content: center;
@@ -567,7 +566,7 @@ a, a:visited, a:active, a:hover {
 
 /* Recruitment form container spacing */
 .recruitment-form {
-    margin-top: 45% !important;
+    margin-top: 5% !important;
 }
 
 /* Recruitment form box styling (already present inline, but for consistency) */
