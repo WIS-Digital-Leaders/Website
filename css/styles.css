@@ -498,6 +498,7 @@ body.dark-theme .card p {
 body.dark-theme .card a {
   color: var(--brand);
 }
+<<<<<<< copilot/fix-navbar-design
 body.dark-theme .nav-drawer {
   background: #1e1e1e;
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
@@ -517,4 +518,299 @@ body.dark-theme .nav-drawer__link:focus {
 }
 body.dark-theme .nav-toggle__bar {
   background: #eee;
+=======
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Clickable card links */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card-link:hover {
+  text-decoration: none;
+}
+.card-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Carousel ────────────────────────────────────── */
+.events-controls {
+  max-width: var(--max);
+  margin: 0 auto var(--space);
+  padding: 0 var(--space);
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  flex-wrap: wrap;
+}
+.events-controls label {
+  font-weight: 600;
+  color: var(--text);
+}
+.date-picker {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.date-picker:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(0,119,255,0.2);
+  outline: none;
+}
+.carousel-section {
+  max-width: var(--max);
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.carousel-track-wrap {
+  flex: 1;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s ease;
+}
+.carousel-card {
+  flex: 0 0 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.4s ease;
+}
+.carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+.carousel-card h2 {
+  margin: 0.5rem 0 0.4rem;
+  font-size: 1.1rem;
+}
+.carousel-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+.event-tag {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+.event-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.carousel-btn {
+  flex-shrink: 0;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+.carousel-btn:hover:not(:disabled) {
+  background: var(--brand-2);
+  transform: scale(1.1);
+}
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.carousel-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: var(--space-lg);
+}
+body.dark-theme .date-picker {
+  background: #222;
+  border: 1px solid #444;
+  color: #eee;
+}
+body.dark-theme .carousel-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+body.dark-theme .carousel-card p {
+  color: #bbb;
+}
+
+/* ── Org-chart tree ──────────────────────────────── */
+.org-tree-section {
+  max-width: var(--max);
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space);
+  overflow-x: auto;
+}
+.org-tree {
+  display: inline-block;
+  min-width: 100%;
+}
+.org-tree ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+.org-tree > ul > li > ul {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 24px;
+  position: relative;
+}
+.org-tree > ul > li > ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 24px;
+  background: #ccc;
+}
+.org-tree ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.org-tree ul ul li::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 24px;
+  background: #ccc;
+}
+.org-tree ul ul {
+  margin-top: 24px;
+  padding-top: 0;
+  gap: 8px;
+}
+.org-tree ul ul::before {
+  display: none;
+}
+.org-node {
+  background: var(--brand);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.org-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+.org-node.root {
+  background: var(--brand-2);
+  font-size: 1rem;
+  padding: 10px 24px;
+}
+.org-node.leaf {
+  background: #e8f0fe;
+  color: var(--brand-2);
+}
+body.dark-theme .org-node.leaf {
+  background: #1a2a4a;
+  color: #79b8ff;
+}
+body.dark-theme .org-tree ul li::before,
+body.dark-theme .org-tree > ul > li > ul::before {
+  background: #444;
+}
+
+/* ── Social links (Contact page) ─────────────────── */
+.social-links {
+  display: flex;
+  gap: var(--space);
+  margin-top: var(--space);
+  flex-wrap: wrap;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 16px;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.social-link:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,119,255,0.25);
+}
+.social-icon {
+  width: 28px;
+  height: 28px;
+  fill: #E1306C;
+  flex-shrink: 0;
+  transition: fill 0.25s ease;
+}
+.social-link:hover .social-icon {
+  fill: #fff;
+}
+.social-icon.youtube {
+  fill: #FF0000;
+}
+body.dark-theme .social-link {
+  background: #1e1e1e;
+  border-color: #333;
+  color: #eee;
+}
+body.dark-theme .social-link:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+>>>>>>> main
 }
