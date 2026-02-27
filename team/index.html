@@ -44,8 +44,12 @@
   <aside class="nav-drawer" id="navDrawer" aria-label="Site navigation" aria-hidden="true">
     <div class="nav-drawer__header">
       <div class="nav-drawer__logos">
-        <img src="../images/wislogo.png" alt="WIS logo" class="nav-drawer__logo">
-        <img src="../images/favicon.png" alt="Digital Leaders logo" class="nav-drawer__logo">
+        <a href="https://wisdom.wis.edu.hk" target="_blank" rel="noopener noreferrer">
+          <img src="../images/wislogo.png" alt="WIS logo" class="nav-drawer__logo">
+        </a>
+        <a href="../index.html">
+          <img src="../images/favicon.png" alt="Digital Leaders logo" class="nav-drawer__logo">
+        </a>
       </div>
       <button class="nav-drawer__close" aria-label="Close menu">&#x2715;</button>
     </div>
@@ -64,27 +68,56 @@
       <p>Our student-led teams work together to support, design, research, and build technology solutions across WIS.</p>
     </section>
 
-    <section class="grid cards">
-      <a href="../management/index.html" class="card card-link">
-        <span class="card-icon">🏛️</span>
-        <h2>Management</h2>
-        <p>Coordinates all Digital Leaders projects, events, and inter-team collaboration.</p>
-      </a>
-      <a href="../design/index.html" class="card card-link">
-        <span class="card-icon">🎨</span>
-        <h2>Design</h2>
-        <p>Creates visuals, branding, UI/UX mockups, and web layouts for Digital Leaders initiatives.</p>
-      </a>
-      <a href="../research/index.html" class="card card-link">
-        <span class="card-icon">🔬</span>
-        <h2>Research</h2>
-        <p>Investigates new technologies, automation tools, and digital literacy to inform the group.</p>
-      </a>
-      <a href="../code/index.html" class="card card-link">
-        <span class="card-icon">💻</span>
-        <h2>Coders</h2>
-        <p>Builds scripts, apps, and web projects that power Digital Leaders tools and resources.</p>
-      </a>
+    <section class="org-tree-section">
+      <div class="org-tree">
+        <ul>
+          <li>
+            <div class="org-node root">🏛️ Digital Leaders</div>
+            <ul>
+              <li>
+                <a href="../management/index.html" class="org-node-link">
+                  <div class="org-node">🏛️ Management</div>
+                </a>
+                <ul>
+                  <li><div class="org-node leaf">Team Lead</div></li>
+                  <li><div class="org-node leaf">Deputy Lead</div></li>
+                  <li><div class="org-node leaf">Events Coordinator</div></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../design/index.html" class="org-node-link">
+                  <div class="org-node">🎨 Design</div>
+                </a>
+                <ul>
+                  <li><div class="org-node leaf">Design Lead</div></li>
+                  <li><div class="org-node leaf">UI/UX Designer</div></li>
+                  <li><div class="org-node leaf">Brand Designer</div></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../research/index.html" class="org-node-link">
+                  <div class="org-node">🔬 Research</div>
+                </a>
+                <ul>
+                  <li><div class="org-node leaf">Research Lead</div></li>
+                  <li><div class="org-node leaf">Tech Researcher</div></li>
+                  <li><div class="org-node leaf">Digital Literacy</div></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../code/index.html" class="org-node-link">
+                  <div class="org-node">💻 Coders</div>
+                </a>
+                <ul>
+                  <li><div class="org-node leaf">Code Lead</div></li>
+                  <li><div class="org-node leaf">Frontend Dev</div></li>
+                  <li><div class="org-node leaf">Backend Dev</div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
 
