@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "dark") {
     document.body.classList.add("dark-theme");
   }
+
+  // Mark active drawer link based on current page
+  const drawerLinks = document.querySelectorAll(".nav-drawer__link");
+  drawerLinks.forEach((link) => {
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
+  });
 });
 
 // Theme toggle (light/dark with localStorage)
@@ -22,14 +30,47 @@ if (themeToggle) {
   });
 }
 
-// Mobile nav toggle
+// Left-side drawer
 const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-if (navToggle && navLinks) {
+const navDrawer = document.getElementById("navDrawer");
+const navOverlay = document.getElementById("navOverlay");
+const navDrawerClose = document.querySelector(".nav-drawer__close");
+
+function openDrawer() {
+  if (!navDrawer || !navOverlay) return;
+  navDrawer.classList.add("is-open");
+  navOverlay.classList.add("is-active");
+  navToggle && navToggle.classList.add("is-active");
+  navToggle && navToggle.setAttribute("aria-expanded", "true");
+  navDrawer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  if (!navDrawer || !navOverlay) return;
+  navDrawer.classList.remove("is-open");
+  navOverlay.classList.remove("is-active");
+  navToggle && navToggle.classList.remove("is-active");
+  navToggle && navToggle.setAttribute("aria-expanded", "false");
+  navDrawer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+if (navToggle) {
   navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+    const isOpen = navDrawer && navDrawer.classList.contains("is-open");
+    isOpen ? closeDrawer() : openDrawer();
   });
 }
+if (navOverlay) {
+  navOverlay.addEventListener("click", closeDrawer);
+}
+if (navDrawerClose) {
+  navDrawerClose.addEventListener("click", closeDrawer);
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navDrawer && navDrawer.classList.contains("is-open")) closeDrawer();
+});
 
 // Simple search handler
 const searchForm = document.querySelector(".search");
