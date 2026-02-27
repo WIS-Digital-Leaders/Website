@@ -10,13 +10,19 @@
   <!-- Header -->
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="https://wisdom.wis.edu.hk">
-        <img src="../images/wislogo.png" alt="WIS logo" class="logo">
-      </a>
-      <a class="brand" href="../index.html">
-        <img src="../images/favicon.png" alt="Digital Leaders logo" class="dlogo">
-      </a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <div class="navbar__brand">
+        <a class="brand" href="https://wisdom.wis.edu.hk">
+          <img src="../images/wislogo.png" alt="WIS logo" class="logo">
+        </a>
+        <a class="brand" href="../index.html">
+          <img src="../images/favicon.png" alt="Digital Leaders logo" class="dlogo">
+        </a>
+      </div>
       <div class="nav-links">
         <a href="../about/index.html" class="nav-link">About Us</a>
         <a href="../team/index.html" class="nav-link">The Team</a>
@@ -24,7 +30,7 @@
         <a href="../contact/index.html" class="nav-link">Contact Us</a>
       </div>
       <div class="actions">
-        <button class="theme-toggle">🌓</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌓</button>
         <form class="search">
           <input class="search-input" type="search" placeholder="Search…">
           <button class="search-btn" type="submit">🔍</button>
@@ -32,6 +38,24 @@
       </div>
     </nav>
   </header>
+
+  <!-- Side drawer -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-label="Site navigation" aria-hidden="true">
+    <div class="nav-drawer__header">
+      <div class="nav-drawer__logos">
+        <img src="../images/wislogo.png" alt="WIS logo" class="nav-drawer__logo">
+        <img src="../images/favicon.png" alt="Digital Leaders logo" class="nav-drawer__logo">
+      </div>
+      <button class="nav-drawer__close" aria-label="Close menu">&#x2715;</button>
+    </div>
+    <nav class="nav-drawer__nav">
+      <a href="../about/index.html" class="nav-drawer__link">About Us</a>
+      <a href="../team/index.html" class="nav-drawer__link">The Team</a>
+      <a href="../events/index.html" class="nav-drawer__link">Previous Events</a>
+      <a href="../contact/index.html" class="nav-drawer__link">Contact Us</a>
+    </nav>
+  </aside>
 
   <!-- Main content -->
   <main>
