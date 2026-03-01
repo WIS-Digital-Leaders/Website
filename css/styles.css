@@ -95,8 +95,9 @@ body {
 /* Desktop nav links */
 .nav-links {
   display: flex;
-  gap: var(--space);
-  margin-left: auto;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
 }
 .nav-link {
   text-decoration: none;
