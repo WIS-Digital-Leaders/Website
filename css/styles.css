@@ -33,8 +33,7 @@ body {
   z-index: 100;
 }
 .navbar {
-  max-width: var(--max);
-  margin: 0 auto;
+  width: 100%;
   padding: 0.625rem var(--space);
   display: flex;
   align-items: center;
@@ -96,8 +95,9 @@ body {
 /* Desktop nav links */
 .nav-links {
   display: flex;
-  gap: var(--space);
-  margin-left: auto;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
 }
 .nav-link {
   text-decoration: none;
