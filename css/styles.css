@@ -496,7 +496,7 @@ body.dark-theme .card p {
   color: #bbb;
 }
 body.dark-theme .card a {
-  color: var(--brand);
+  color: inherit;
 }
 body.dark-theme .nav-drawer {
   background: #1e1e1e;
@@ -534,6 +534,7 @@ body.dark-theme .nav-toggle__bar {
   display: block;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 .card-link:hover {
   text-decoration: none;
