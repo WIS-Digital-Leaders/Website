@@ -859,3 +859,160 @@ body.dark-theme .view-btn:hover {
   font-size: 0.9rem;
   margin: 0;
 }
+
+/* ── Recruitment page ────────────────────────────── */
+.recruit-hero {
+  background: linear-gradient(135deg, #0055aa 0%, #0077ff 100%);
+  color: #fff;
+  text-align: center;
+  padding: 4rem var(--space) 3rem;
+  animation: fadeIn 0.6s ease;
+}
+.recruit-hero__inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.recruit-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+.recruit-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.recruit-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.recruit-highlights {
+  max-width: var(--max);
+  margin: 2.5rem auto 0;
+  padding: 0 var(--space);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.recruit-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid #e0e8f5;
+  border-radius: 10px;
+  padding: 1.25rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,119,255,0.07);
+  animation: fadeInUp 0.5s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.recruit-highlight:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,119,255,0.13);
+}
+.recruit-highlight__icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+.recruit-highlight h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+.recruit-highlight p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.recruit-form-section {
+  max-width: 900px;
+  margin: 2.5rem auto 3rem;
+  padding: 0 var(--space);
+  animation: fadeInUp 0.6s ease;
+}
+.recruit-form-section h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.recruit-form-intro {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+.recruit-form-wrapper {
+  border: 1px solid #dde5f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,119,255,0.08);
+  background: #fff;
+}
+.recruit-form-wrapper iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+.recruit-form-placeholder {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--muted);
+}
+.recruit-form-placeholder__icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.recruit-form-placeholder p {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+.recruit-form-placeholder__hint {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+.recruit-form-placeholder__hint code {
+  background: #f0f4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Dark theme — recruitment */
+body.dark-theme .recruit-highlight {
+  background: #1e1e1e;
+  border-color: #2a2a2a;
+}
+body.dark-theme .recruit-highlight h3 {
+  color: #eee;
+}
+body.dark-theme .recruit-highlight p {
+  color: #bbb;
+}
+body.dark-theme .recruit-form-wrapper {
+  background: #1e1e1e;
+  border-color: #2a2a2a;
+}
+body.dark-theme .recruit-form-placeholder__hint code {
+  background: #2a2a3a;
+  color: #79b8ff;
+}
+body.dark-theme .recruit-form-section h2 {
+  color: #eee;
+}
