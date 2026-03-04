@@ -518,6 +518,24 @@ body.dark-theme .nav-drawer__link:focus {
 body.dark-theme .nav-toggle__bar {
   background: #eee;
 }
+body.dark-theme .site-footer {
+  background: #1e1e1e;
+  color: #aaa;
+}
+body.dark-theme .footer-grid h3 {
+  color: #eee;
+}
+body.dark-theme .footer-links a {
+  color: #aaa;
+}
+body.dark-theme .footer-links a:hover,
+body.dark-theme .footer-links a:focus {
+  color: var(--brand);
+}
+body.dark-theme .footer-bottom {
+  border-top: 1px solid #333;
+  color: #aaa;
+}
 
 /* Animations */
 @keyframes fadeIn {
