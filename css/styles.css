@@ -709,8 +709,8 @@ body.dark-theme .carousel-card p {
 .org-tree > ul > li > ul {
   flex-direction: row;
   align-items: flex-start;
-  gap: 12px;
-  padding-top: 24px;
+  gap: 20px;
+  padding-top: 36px;
   position: relative;
 }
 .org-tree > ul > li > ul::before {
@@ -720,7 +720,7 @@ body.dark-theme .carousel-card p {
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 24px;
+  height: 36px;
   background: #ccc;
 }
 .org-tree ul li {
@@ -732,17 +732,17 @@ body.dark-theme .carousel-card p {
 .org-tree ul ul li::before {
   content: '';
   position: absolute;
-  top: -24px;
+  top: -36px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 24px;
+  height: 36px;
   background: #ccc;
 }
 .org-tree ul ul {
-  margin-top: 24px;
+  margin-top: 36px;
   padding-top: 0;
-  gap: 8px;
+  gap: 16px;
 }
 .org-tree ul ul::before {
   display: none;
@@ -832,6 +832,15 @@ body.dark-theme .social-link:hover {
 /* ── Org-node link wrapper ───────────────────────── */
 .org-node-link {
   text-decoration: none;
+}
+
+/* ── Back button ─────────────────────────────────── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space);
+  font-size: 0.9rem;
 }
 .view-toggle {
   display: flex;
