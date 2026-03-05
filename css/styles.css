@@ -710,7 +710,7 @@ body.dark-theme .carousel-card p {
   flex-direction: row;
   align-items: flex-start;
   gap: 48px;
-  padding-top: 48px;
+  padding-top: 96px;
   position: relative;
 }
 .org-tree > ul > li > ul::before {
