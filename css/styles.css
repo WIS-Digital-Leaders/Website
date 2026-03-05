@@ -1031,3 +1031,84 @@ body.dark-theme .recruit-form-wrapper {
 body.dark-theme .recruit-form-section h2 {
   color: #eee;
 }
+
+/* ── FAQ ─────────────────────────────────────────── */
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space);
+}
+.faq-list {
+  display: grid;
+  gap: var(--space);
+}
+.faq-item {
+  background: var(--surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, background 0.4s ease, border-color 0.4s ease;
+}
+.faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 119, 255, 0.1);
+}
+.faq-item details {
+  padding: 0;
+}
+.faq-item details summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.faq-item details summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item details summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--brand);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.faq-item details[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item details[open] summary {
+  color: var(--brand);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.faq-item details p {
+  padding: 1rem 1.25rem;
+  color: var(--muted);
+  animation: fadeInUp 0.2s ease;
+}
+.faq-item details p .link {
+  color: var(--brand);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.faq-item details p .link:hover {
+  color: var(--brand-2);
+}
+
+/* Dark theme — FAQ */
+body.dark-theme .faq-item {
+  background: #1e1e1e;
+  border-color: #2a2a2a;
+}
+body.dark-theme .faq-item details[open] summary {
+  border-bottom-color: #2a2a2a;
+}
+body.dark-theme .faq-item details p {
+  color: #bbb;
+}
