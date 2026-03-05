@@ -709,8 +709,8 @@ body.dark-theme .carousel-card p {
 .org-tree > ul > li > ul {
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
-  padding-top: 36px;
+  gap: 48px;
+  padding-top: 48px;
   position: relative;
 }
 .org-tree > ul > li > ul::before {
@@ -720,7 +720,7 @@ body.dark-theme .carousel-card p {
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 36px;
+  height: 48px;
   background: #ccc;
 }
 .org-tree ul li {
@@ -729,28 +729,20 @@ body.dark-theme .carousel-card p {
   align-items: center;
   position: relative;
 }
-.org-tree ul ul li::before {
+.org-tree > ul > li > ul > li::before {
   content: '';
   position: absolute;
-  top: -36px;
+  top: -48px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 36px;
+  height: 48px;
   background: #ccc;
-}
-.org-tree ul ul {
-  margin-top: 36px;
-  padding-top: 0;
-  gap: 16px;
-}
-.org-tree ul ul::before {
-  display: none;
 }
 .org-node {
   background: var(--brand);
   color: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 8px 18px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -765,18 +757,19 @@ body.dark-theme .carousel-card p {
 }
 .org-node.root {
   background: var(--brand-2);
-  font-size: 1rem;
-  padding: 10px 24px;
+  font-size: 1.1rem;
+  padding: 12px 32px;
 }
-.org-node.leaf {
-  background: #e8f0fe;
-  color: var(--brand-2);
+.org-node.branch {
+  font-size: 1.1rem;
+  padding: 14px 36px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-body.dark-theme .org-node.leaf {
-  background: #1a2a4a;
-  color: #79b8ff;
+body.dark-theme .org-node.branch {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
 }
-body.dark-theme .org-tree ul li::before,
+body.dark-theme .org-tree > ul > li > ul > li::before,
 body.dark-theme .org-tree > ul > li > ul::before {
   background: #444;
 }
