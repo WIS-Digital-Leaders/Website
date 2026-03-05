@@ -769,8 +769,18 @@ body.dark-theme .carousel-card p {
 body.dark-theme .org-node.branch {
   box-shadow: 0 4px 14px rgba(0,0,0,0.5);
 }
+.org-tree > ul > li > ul::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ccc;
+}
 body.dark-theme .org-tree > ul > li > ul > li::before,
-body.dark-theme .org-tree > ul > li > ul::before {
+body.dark-theme .org-tree > ul > li > ul::before,
+body.dark-theme .org-tree > ul > li > ul::after {
   background: #444;
 }
 
