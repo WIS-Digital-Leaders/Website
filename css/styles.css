@@ -769,18 +769,28 @@ body.dark-theme .carousel-card p {
 body.dark-theme .org-node.branch {
   box-shadow: 0 4px 14px rgba(0,0,0,0.5);
 }
-.org-tree > ul > li > ul::after {
+.org-tree > ul > li > ul > li::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: -48px;
   height: 2px;
   background: #ccc;
 }
+.org-tree > ul > li > ul > li:first-child::after {
+  left: 50%;
+  right: -24px;
+}
+.org-tree > ul > li > ul > li:last-child::after {
+  right: 50%;
+  left: -24px;
+}
+.org-tree > ul > li > ul > li:not(:first-child):not(:last-child)::after {
+  left: -24px;
+  right: -24px;
+}
 body.dark-theme .org-tree > ul > li > ul > li::before,
-body.dark-theme .org-tree > ul > li > ul::before,
-body.dark-theme .org-tree > ul > li > ul::after {
+body.dark-theme .org-tree > ul > li > ul > li::after,
+body.dark-theme .org-tree > ul > li > ul::before {
   background: #444;
 }
 
