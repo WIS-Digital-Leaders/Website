@@ -7,18 +7,16 @@ This folder contains all event data for the WIS Digital Leaders Events page.
 Each event lives in its own **self-contained `.txt` file**. The file uses a simple frontmatter
 format: a few metadata lines, a `---` separator, and then the event description.
 
-`events.json` is a **simple ordered manifest** — an array of `.txt` filenames in
-chronological order (oldest first). The events page reads the manifest, fetches every listed
-file in parallel, and renders the results automatically.
+`events.json` is a **simple ordered manifest** — an array of `.txt` filenames sorted
+chronologically. It is **auto-generated** by a GitHub Actions workflow whenever `.txt` files
+are pushed to the repository; you never need to edit it manually.
 
 ---
 
-## Adding a New Event
+## Adding a New Event — one step only
 
-### Step 1 — Create the `.txt` file
-
-Create a new file in this directory. Use the event title as the filename (lowercase, hyphens
-instead of spaces, no special characters):
+Create a new `.txt` file in this directory. Use the event title as the filename (lowercase,
+hyphens instead of spaces, no special characters):
 
 ```
 my-new-event.txt
@@ -36,7 +34,13 @@ cancelled: false
 A short description of what the event involves and who it is for.
 ```
 
-#### Frontmatter field reference
+Push the file. The **Update events manifest** GitHub Actions workflow will automatically rescan
+all `.txt` files in this directory, sort them by date, and write the result to `events.json`.
+No further edits are needed.
+
+---
+
+## Frontmatter field reference
 
 | Field       | Type    | Required | Description                                                      |
 |-------------|---------|----------|------------------------------------------------------------------|
@@ -46,21 +50,6 @@ A short description of what the event involves and who it is for.
 | `cancelled` | boolean | ✅       | `true` if the event was or is cancelled; otherwise `false`       |
 
 The text after `---` is the event description shown on the events page.
-
----
-
-### Step 2 — Add the filename to `events.json`
-
-`events.json` is just an ordered array of filenames. Open it and insert the new filename in
-the correct chronological position:
-
-```json
-[
-  "earlier-event.txt",
-  "my-new-event.txt",
-  "later-event.txt"
-]
-```
 
 ---
 
@@ -76,16 +65,13 @@ cancelled: false
 Introduction to Digital Leaders for new members and interested students.
 ```
 
-**Entry in `events.json`** (in correct date order):
-```json
-"kick-off-assembly.txt"
-```
+Push this file → the workflow runs → `events.json` is updated → the event appears on the page.
 
 ---
 
 ## Notes
 
-- Keep `events.json` sorted by `date` (oldest first) to make reviewing history easier.
 - Filenames may only contain lowercase letters, digits, and hyphens (`-`). No spaces or special characters.
 - If two events share a similar title, add a suffix such as `-2025` or `-2` to distinguish them.
 - The `cancelled: false` line must still be present even when the event is not cancelled.
+- `events.json` is maintained automatically. Do not edit it by hand.

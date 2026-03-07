@@ -347,6 +347,7 @@
     <div class="add-event-banner">
       <details>
         <summary>➕ How to add a new event</summary>
+        <p>Adding a new event is <strong>one step only</strong> — no editing of <code>events.json</code> required.</p>
         <ol>
           <li>Create a new <code>.txt</code> file in <code>events/data/</code> — use the event title as the filename (lowercase, hyphens instead of spaces, e.g. <code>my-new-event.txt</code>).</li>
           <li>Put the event metadata as frontmatter at the top of the file, followed by <code>---</code>, then the description:</li>
@@ -357,11 +358,8 @@ category: Workshop
 cancelled: false
 ---
 A short description of the event.</pre>
-        <ol start="3">
-          <li>Add the filename to <code>events/data/events.json</code> in date order (it is just a list of filenames):</li>
-        </ol>
-        <pre>"my-new-event.txt"</pre>
-        <p style="margin-top:0.6rem">Categories: <strong>Workshop · Talk · Initiative · Support · Showcase · Hackathon · Stall</strong></p>
+        <p style="margin-top:0.6rem">Push the file — a GitHub Actions workflow automatically rescans all <code>.txt</code> files and rebuilds <code>events.json</code>. ✅</p>
+        <p style="margin-top:0.4rem">Categories: <strong>Workshop · Talk · Initiative · Support · Showcase · Hackathon · Stall</strong></p>
       </details>
     </div>
   </main>
