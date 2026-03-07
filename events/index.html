@@ -103,6 +103,7 @@
     </section>
 
     <p class="carousel-empty" id="carousel-empty" hidden></p>
+    <p class="carousel-empty" id="grid-empty" hidden></p>
   </main>
 
   <!-- Footer -->
@@ -255,7 +256,7 @@
 
     function buildGrid() {
       const grid = document.getElementById('events-grid');
-      const empty = document.getElementById('carousel-empty');
+      const empty = document.getElementById('grid-empty');
       const countEl = document.getElementById('grid-count');
 
       let filtered = gridCategory === 'all'
@@ -324,7 +325,7 @@
         document.getElementById('events-grid-section').style.display = 'none';
         document.getElementById('carousel-controls').style.display = '';
         document.getElementById('grid-controls').style.display = 'none';
-        document.getElementById('carousel-empty').hidden = true;
+        document.getElementById('grid-empty').hidden = true;
         document.getElementById('btn-carousel').classList.add('active');
         document.getElementById('btn-carousel').setAttribute('aria-pressed', 'true');
         document.getElementById('btn-grid').classList.remove('active');
