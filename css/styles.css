@@ -686,27 +686,32 @@ body.dark-theme .carousel-card {
 body.dark-theme .carousel-card p {
   color: #bbb;
 }
+/* ── Event status colours ──────────────────────────── */
+.carousel-card.past-event,
+.card.past-event {
+  background: #e6f4ea;
+  border-color: #a8d5b0;
+}
+.carousel-card.upcoming-event,
+.card.upcoming-event {
+  background: #fde8e8;
+  border-color: #f5b8b8;
+}
+.carousel-card.cancelled-event,
+.card.cancelled-event {
+  background: #fffde7;
+  border-color: #f9e275;
+}
 /* ── Today marker (carousel) ─────────────────────── */
-.carousel-card.past-event {
-  opacity: 0.6;
-}
-body.dark-theme .carousel-card.past-event {
-  opacity: 0.5;
-}
 .today-marker {
-  flex: 0 0 280px;
-  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-  border: 2px dashed #f39c12;
-  border-radius: 10px;
-  padding: 1.25rem;
+  background: #fff;
+  border: 2px solid #f39c12;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(243,156,18,0.2);
-  animation: fadeInUp 0.4s ease;
 }
 .today-marker__icon {
   font-size: 2rem;
@@ -724,24 +729,17 @@ body.dark-theme .carousel-card.past-event {
   font-size: 0.8rem;
   color: var(--muted);
 }
-body.dark-theme .today-marker {
-  background: linear-gradient(135deg, #2d2200 0%, #3d2f00 100%);
-  border-color: #f39c12;
-}
-body.dark-theme .today-marker__date {
-  color: #aaa;
-}
 /* ── Today divider (grid) ────────────────────────── */
-.card.past-event {
-  opacity: 0.6;
-}
 .today-divider {
   grid-column: 1 / -1;
+  background: #fff;
+  border: 2px solid #f39c12;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 4px 0;
-  margin: 4px 0;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
 }
 .today-divider__line {
   flex: 1;
@@ -754,20 +752,36 @@ body.dark-theme .today-marker__date {
 }
 .today-divider__label {
   flex-shrink: 0;
-  background: #fff9e6;
-  border: 2px solid #f39c12;
-  border-radius: 20px;
-  padding: 4px 16px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #e67e22;
   white-space: nowrap;
 }
+/* ── Dark theme: status colours ──────────────────── */
+body.dark-theme .carousel-card.past-event,
 body.dark-theme .card.past-event {
-  opacity: 0.5;
+  background: #1a2e1d;
+  border-color: #2d5a34;
+}
+body.dark-theme .carousel-card.upcoming-event,
+body.dark-theme .card.upcoming-event {
+  background: #2d1a1a;
+  border-color: #5a2d2d;
+}
+body.dark-theme .carousel-card.cancelled-event,
+body.dark-theme .card.cancelled-event {
+  background: #2d2a14;
+  border-color: #5a5020;
+}
+body.dark-theme .today-marker {
+  background: #1e1e1e;
+  border-color: #f39c12;
+}
+body.dark-theme .today-divider {
+  background: #1e1e1e;
+  border-color: #f39c12;
 }
 body.dark-theme .today-divider__label {
-  background: #2d2200;
   color: #f39c12;
 }
 
