@@ -1,1 +1,6 @@
+date: 2023-09-07
+title: Inaugural Assembly
+category: Talk
+cancelled: false
+---
 First-ever Digital Leaders assembly, introducing the programme to the WIS community.

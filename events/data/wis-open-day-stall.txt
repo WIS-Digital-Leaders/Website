@@ -1,1 +1,6 @@
+date: 2023-11-02
+title: WIS Open Day Stall
+category: Stall
+cancelled: false
+---
 First Digital Leaders stall at WIS Open Day showcasing student-led initiatives.

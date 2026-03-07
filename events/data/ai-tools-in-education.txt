@@ -1,1 +1,6 @@
+date: 2026-03-20
+title: AI Tools in Education
+category: Talk
+cancelled: false
+---
 Exploring how AI tools can enhance learning and productivity at WIS.

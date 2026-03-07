@@ -1,1 +1,6 @@
+date: 2026-03-22
+title: Website Refresh Workshop
+category: Workshop
+cancelled: false
+---
 Collaborative session to redesign key pages of the Digital Leaders website.

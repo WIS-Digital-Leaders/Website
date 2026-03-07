@@ -1,1 +1,6 @@
+date: 2024-11-20
+title: STEM Fair Stall
+category: Stall
+cancelled: false
+---
 Represented Digital Leaders at the school STEM Fair with demos on coding, robotics, and app development.

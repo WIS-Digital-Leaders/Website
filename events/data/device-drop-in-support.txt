@@ -1,1 +1,6 @@
+date: 2026-03-15
+title: Device Drop-In Support
+category: Support
+cancelled: false
+---
 Open drop-in for students and staff needing help with devices, apps, or accounts.

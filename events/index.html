@@ -348,18 +348,19 @@
       <details>
         <summary>➕ How to add a new event</summary>
         <ol>
-          <li>Create a new <code>.txt</code> file in <code>events/data/</code> — use the event title as the filename (lowercase, hyphens instead of spaces).</li>
-          <li>Put the event description as plain text inside the file.</li>
-          <li>Add a new entry to <code>events/data/events.json</code> in date order:</li>
+          <li>Create a new <code>.txt</code> file in <code>events/data/</code> — use the event title as the filename (lowercase, hyphens instead of spaces, e.g. <code>my-new-event.txt</code>).</li>
+          <li>Put the event metadata as frontmatter at the top of the file, followed by <code>---</code>, then the description:</li>
         </ol>
-        <pre>{
-  "date": "YYYY-MM-DD",
-  "title": "My New Event",
-  "category": "Workshop",
-  "cancelled": false,
-  "file": "my-new-event.txt",
-  "description": "A short description of the event."
-}</pre>
+        <pre>date: YYYY-MM-DD
+title: My New Event
+category: Workshop
+cancelled: false
+---
+A short description of the event.</pre>
+        <ol start="3">
+          <li>Add the filename to <code>events/data/events.json</code> in date order (it is just a list of filenames):</li>
+        </ol>
+        <pre>"my-new-event.txt"</pre>
         <p style="margin-top:0.6rem">Categories: <strong>Workshop · Talk · Initiative · Support · Showcase · Hackathon · Stall</strong></p>
       </details>
     </div>
@@ -678,15 +679,47 @@
       }
     }
 
+    function parseTxt(text) {
+      const sep = text.indexOf('---');
+      if (sep === -1) return null;
+      const front = text.slice(0, sep).trim();
+      const body  = text.slice(sep + 3).trim();
+      const ev = { description: body };
+      front.split('\n').forEach(line => {
+        const colon = line.indexOf(':');
+        if (colon === -1) return;
+        const key = line.slice(0, colon).trim();
+        const val = line.slice(colon + 1).trim();
+        if (key === 'cancelled') ev[key] = val === 'true';
+        else ev[key] = val;
+      });
+      return ev;
+    }
+
     async function loadEvents() {
       const loader = document.getElementById('events-loader');
       const carouselSection = document.getElementById('carousel-section');
+      let manifest;
       try {
         const res = await fetch('data/events.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        EVENTS = await res.json();
+        manifest = await res.json();
       } catch (err) {
         loader.innerHTML = '<p style="color:#c0392b">⚠️ Could not load events data. Please try refreshing the page.</p>';
+        return;
+      }
+      try {
+        const texts = await Promise.all(
+          manifest.map(filename =>
+            fetch('data/' + filename).then(r => {
+              if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + filename);
+              return r.text();
+            })
+          )
+        );
+        EVENTS = texts.map(parseTxt).filter(Boolean);
+      } catch (err) {
+        loader.innerHTML = '<p style="color:#c0392b">⚠️ Could not load one or more event files. Please try refreshing the page.</p>';
         return;
       }
 

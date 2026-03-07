@@ -1,1 +1,6 @@
+date: 2025-03-28
+title: Hackathon Prep
+category: Initiative
+cancelled: false
+---
 Team-building and ideation session ahead of the school hackathon.

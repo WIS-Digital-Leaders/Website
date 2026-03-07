@@ -1,1 +1,6 @@
+date: 2025-01-09
+title: New Term Planning
+category: Initiative
+cancelled: false
+---
 Kickoff planning session for spring term Digital Leaders activities.

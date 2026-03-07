@@ -1,1 +1,6 @@
+date: 2026-04-02
+title: Data Literacy Intro
+category: Workshop
+cancelled: false
+---
 Understanding data: how to collect, interpret, and visualise information responsibly.

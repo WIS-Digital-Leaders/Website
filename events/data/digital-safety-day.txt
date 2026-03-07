@@ -1,1 +1,6 @@
+date: 2024-10-08
+title: Digital Safety Day
+category: Workshop
+cancelled: false
+---
 Session on cybersecurity, privacy, and responsible tech use for Year 9.

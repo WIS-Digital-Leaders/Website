@@ -1,1 +1,6 @@
+date: 2025-05-06
+title: App Store Workshop
+category: Workshop
+cancelled: false
+---
 How to package, publish, and present an app to a real audience.

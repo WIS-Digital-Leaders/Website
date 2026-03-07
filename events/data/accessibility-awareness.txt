@@ -1,1 +1,6 @@
+date: 2024-05-16
+title: Accessibility Awareness
+category: Initiative
+cancelled: false
+---
 Exploring how digital design can be more accessible and inclusive for all users.

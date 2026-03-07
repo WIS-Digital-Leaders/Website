@@ -1,1 +1,6 @@
+date: 2025-03-03
+title: Data Privacy Day Talk
+category: Talk
+cancelled: false
+---
 Raising awareness of personal data, privacy settings, and digital footprints.

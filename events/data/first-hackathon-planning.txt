@@ -1,1 +1,6 @@
+date: 2024-02-22
+title: First Hackathon Planning
+category: Initiative
+cancelled: false
+---
 Organising and planning the first-ever WIS hackathon event for spring term.

@@ -1,1 +1,6 @@
+date: 2026-09-24
+title: Digital Ethics Discussion
+category: Talk
+cancelled: false
+---
 Open forum on digital ethics, data privacy, and responsible AI use.

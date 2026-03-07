@@ -1,1 +1,6 @@
+date: 2026-04-09
+title: Student Tech Innovation Showcase
+category: Showcase
+cancelled: false
+---
 Highlighting student-led tech projects from across the school.

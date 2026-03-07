@@ -1,1 +1,6 @@
+date: 2025-02-06
+title: Cloud Computing Workshop
+category: Workshop
+cancelled: false
+---
 Understanding cloud services, storage, and collaboration tools in everyday use.

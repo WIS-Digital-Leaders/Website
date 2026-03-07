@@ -1,1 +1,6 @@
+date: 2026-07-15
+title: Research Symposium 2026
+category: Showcase
+cancelled: false
+---
 Sharing research findings on AI, automation, and digital wellbeing from the academic year.

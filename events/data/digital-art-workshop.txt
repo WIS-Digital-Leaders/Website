@@ -1,1 +1,6 @@
+date: 2025-04-17
+title: Digital Art Workshop
+category: Workshop
+cancelled: false
+---
 Creating digital illustrations and graphics using free online tools.

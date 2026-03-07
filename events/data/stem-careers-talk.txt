@@ -1,1 +1,6 @@
+date: 2025-05-01
+title: STEM Careers Talk
+category: Talk
+cancelled: false
+---
 Professionals in tech share insights on careers in STEM fields.
