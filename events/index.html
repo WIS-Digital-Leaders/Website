@@ -69,8 +69,21 @@
     </section>
 
     <section class="events-controls">
-      <label for="event-date-picker">Browse events from:</label>
-      <input type="date" id="event-date-picker" class="date-picker">
+      <div id="carousel-controls" class="carousel-controls">
+        <label for="event-date-picker">Browse events from:</label>
+        <input type="date" id="event-date-picker" class="date-picker">
+      </div>
+      <div id="grid-controls" class="grid-controls" style="display:none">
+        <div class="category-filters" id="category-filters" role="group" aria-label="Filter by category"></div>
+        <div class="sort-controls">
+          <label for="sort-order">Sort:</label>
+          <select id="sort-order" class="sort-select">
+            <option value="asc">Oldest first</option>
+            <option value="desc">Newest first</option>
+          </select>
+        </div>
+        <span class="event-count" id="grid-count" aria-live="polite"></span>
+      </div>
       <div class="view-toggle" role="group" aria-label="View style">
         <button class="view-btn active" id="btn-carousel" aria-pressed="true">⇄ Carousel</button>
         <button class="view-btn" id="btn-grid" aria-pressed="false">⊞ Grid</button>
@@ -89,7 +102,7 @@
       <div class="grid cards" id="events-grid"></div>
     </section>
 
-    <p class="carousel-empty" id="carousel-empty" hidden>No events found from this date. Try an earlier date.</p>
+    <p class="carousel-empty" id="carousel-empty" hidden></p>
   </main>
 
   <!-- Footer -->
@@ -171,6 +184,8 @@
 
     let currentIndex = 0;
     let currentView = 'carousel';
+    let gridCategory = 'all';
+    let gridSort = 'asc';
 
     function buildCarousel(fromDate) {
       const track = document.getElementById('carousel-track');
@@ -182,6 +197,7 @@
       currentIndex = 0;
 
       if (!filtered.length) {
+        empty.textContent = 'No events found from this date. Try an earlier date.';
         empty.hidden = false;
         if (currentView === 'carousel') carouselSection.style.display = 'none';
         return;
@@ -215,16 +231,81 @@
       document.getElementById('carousel-next').disabled = currentIndex >= cards.length - 1;
     }
 
+    function buildCategoryFilters() {
+      const container = document.getElementById('category-filters');
+      container.innerHTML = '';
+      const categories = ['all', ...Object.keys(CATEGORY_COLOURS)];
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (cat === gridCategory ? ' active' : '');
+        btn.textContent = cat === 'all' ? 'All' : cat;
+        btn.dataset.category = cat;
+        if (cat !== 'all') {
+          btn.style.setProperty('--filter-colour', CATEGORY_COLOURS[cat]);
+        }
+        btn.addEventListener('click', () => {
+          gridCategory = cat;
+          container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          buildGrid();
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    function buildGrid() {
+      const grid = document.getElementById('events-grid');
+      const empty = document.getElementById('carousel-empty');
+      const countEl = document.getElementById('grid-count');
+
+      let filtered = gridCategory === 'all'
+        ? [...EVENTS]
+        : EVENTS.filter(e => e.category === gridCategory);
+
+      filtered.sort((a, b) => gridSort === 'asc'
+        ? a.date.localeCompare(b.date)
+        : b.date.localeCompare(a.date));
+
+      grid.innerHTML = '';
+
+      if (!filtered.length) {
+        empty.textContent = 'No events found for this category.';
+        empty.hidden = false;
+        countEl.textContent = '';
+        return;
+      }
+
+      empty.hidden = true;
+      countEl.textContent = filtered.length + ' event' + (filtered.length !== 1 ? 's' : '');
+
+      filtered.forEach((ev) => {
+        const colour = CATEGORY_COLOURS[ev.category] || '#0077ff';
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML =
+          '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
+          '<time class="event-date">' + formatDate(ev.date) + '</time>' +
+          '<h2 class="event-grid-title">' + ev.title + '</h2>' +
+          '<p class="event-grid-description">' + ev.description + '</p>';
+        grid.appendChild(card);
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const picker = document.getElementById('event-date-picker');
       const now = new Date();
       const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
       picker.value = today;
       buildCarousel(today);
+      buildCategoryFilters();
 
       picker.addEventListener('change', () => {
         buildCarousel(picker.value);
-        buildGrid(picker.value);
+      });
+
+      document.getElementById('sort-order').addEventListener('change', (e) => {
+        gridSort = e.target.value;
+        buildGrid();
       });
 
       document.getElementById('carousel-prev').addEventListener('click', () => {
@@ -241,10 +322,14 @@
         currentView = 'carousel';
         document.getElementById('carousel-section').style.display = '';
         document.getElementById('events-grid-section').style.display = 'none';
+        document.getElementById('carousel-controls').style.display = '';
+        document.getElementById('grid-controls').style.display = 'none';
+        document.getElementById('carousel-empty').hidden = true;
         document.getElementById('btn-carousel').classList.add('active');
         document.getElementById('btn-carousel').setAttribute('aria-pressed', 'true');
         document.getElementById('btn-grid').classList.remove('active');
         document.getElementById('btn-grid').setAttribute('aria-pressed', 'false');
+        buildCarousel(picker.value);
         updateCarousel();
       });
 
@@ -252,39 +337,16 @@
         currentView = 'grid';
         document.getElementById('carousel-section').style.display = 'none';
         document.getElementById('events-grid-section').style.display = '';
+        document.getElementById('carousel-controls').style.display = 'none';
+        document.getElementById('grid-controls').style.display = '';
+        document.getElementById('carousel-empty').hidden = true;
         document.getElementById('btn-grid').classList.add('active');
         document.getElementById('btn-grid').setAttribute('aria-pressed', 'true');
         document.getElementById('btn-carousel').classList.remove('active');
         document.getElementById('btn-carousel').setAttribute('aria-pressed', 'false');
-        buildGrid(picker.value);
+        buildGrid();
       });
     });
-
-    function buildGrid(fromDate) {
-      const grid = document.getElementById('events-grid');
-      const empty = document.getElementById('carousel-empty');
-      const filtered = EVENTS.filter(e => e.date >= fromDate).sort((a, b) => a.date.localeCompare(b.date));
-
-      grid.innerHTML = '';
-
-      if (!filtered.length) {
-        empty.hidden = false;
-        return;
-      }
-
-      empty.hidden = true;
-      filtered.forEach((ev) => {
-        const colour = CATEGORY_COLOURS[ev.category] || '#0077ff';
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.innerHTML =
-          '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
-          '<time class="event-date">' + formatDate(ev.date) + '</time>' +
-          '<h2 class="event-grid-title">' + ev.title + '</h2>' +
-          '<p class="event-grid-description">' + ev.description + '</p>';
-        grid.appendChild(card);
-      });
-    }
   </script>
 </body>
 </html>
