@@ -1,1 +1,6 @@
+date: 2025-08-14
+title: New Year Device Setup
+category: Support
+cancelled: false
+---
 Helping new Year 7 students set up school accounts and devices before term starts.

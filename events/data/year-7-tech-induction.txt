@@ -1,1 +1,6 @@
+date: 2026-06-02
+title: Year 7 Tech Induction
+category: Support
+cancelled: false
+---
 Helping Year 7 students get set up and confident with school digital tools.

@@ -1,1 +1,6 @@
+date: 2023-11-16
+title: Scratch Coding Intro
+category: Workshop
+cancelled: false
+---
 Block-based programming for Year 7 students — building games and animations.

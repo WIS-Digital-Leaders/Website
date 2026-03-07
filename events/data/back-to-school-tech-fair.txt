@@ -1,1 +1,6 @@
+date: 2026-08-20
+title: Back-to-School Tech Fair
+category: Stall
+cancelled: false
+---
 Interactive stall helping students set up devices and get ready for the new academic year.

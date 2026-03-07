@@ -1,1 +1,6 @@
+date: 2024-08-22
+title: Pre-Term Setup Session
+category: Support
+cancelled: false
+---
 Supporting teachers and students in setting up devices and apps for the new year.

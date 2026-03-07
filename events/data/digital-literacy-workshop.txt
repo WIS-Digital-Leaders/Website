@@ -1,1 +1,6 @@
+date: 2023-09-21
+title: Digital Literacy Workshop
+category: Workshop
+cancelled: false
+---
 Foundational session covering essential digital skills for the modern classroom.

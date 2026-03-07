@@ -1,1 +1,6 @@
+date: 2026-06-20
+title: Community Tech Stall
+category: Stall
+cancelled: false
+---
 Engaging the broader WIS community with interactive digital activities at a community event.

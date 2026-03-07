@@ -1,1 +1,6 @@
+date: 2024-09-20
+title: Automation Basics
+category: Workshop
+cancelled: false
+---
 Intro workshop on scripts and workflow optimisation using Google Apps Script.

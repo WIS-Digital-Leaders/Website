@@ -1,1 +1,6 @@
+date: 2025-03-07
+title: Community Expo Stall
+category: Stall
+cancelled: false
+---
 Staffed a stall at the local community technology expo, engaging the public with hands-on digital activities.

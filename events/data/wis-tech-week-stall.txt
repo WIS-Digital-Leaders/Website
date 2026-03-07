@@ -1,1 +1,6 @@
+date: 2026-05-20
+title: WIS Tech Week Stall
+category: Stall
+cancelled: false
+---
 Showcase of Digital Leaders projects and initiatives during WIS Tech Week.

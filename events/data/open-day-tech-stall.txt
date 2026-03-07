@@ -1,1 +1,6 @@
+date: 2024-10-15
+title: Open Day Tech Stall
+category: Stall
+cancelled: false
+---
 Digital Leaders ran an interactive tech stall at the WIS Open Day, showcasing student projects to prospective families.

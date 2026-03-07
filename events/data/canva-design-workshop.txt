@@ -1,1 +1,6 @@
+date: 2024-03-07
+title: Canva Design Workshop
+category: Workshop
+cancelled: false
+---
 Hands-on session creating professional-looking digital content with Canva.

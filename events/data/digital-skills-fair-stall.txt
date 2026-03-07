@@ -1,1 +1,6 @@
+date: 2026-04-23
+title: Digital Skills Fair Stall
+category: Stall
+cancelled: false
+---
 Interactive stall at the WIS Spring Fair highlighting Digital Leaders activities.

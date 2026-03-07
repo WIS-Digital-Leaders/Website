@@ -1,1 +1,6 @@
+date: 2026-10-08
+title: Tech Leaders Panel
+category: Talk
+cancelled: false
+---
 WIS alumni in tech careers speak to Digital Leaders about pathways and opportunities.

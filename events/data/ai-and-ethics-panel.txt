@@ -1,1 +1,6 @@
+date: 2024-11-28
+title: AI & Ethics Panel
+category: Talk
+cancelled: false
+---
 Open discussion on artificial intelligence, bias, and responsible development.

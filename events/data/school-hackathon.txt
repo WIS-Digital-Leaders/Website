@@ -1,1 +1,6 @@
+date: 2025-04-10
+title: School Hackathon
+category: Hackathon
+cancelled: false
+---
 24-hour challenge: teams build solutions to real WIS tech challenges.

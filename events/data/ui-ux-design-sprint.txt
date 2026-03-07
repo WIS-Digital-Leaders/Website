@@ -1,1 +1,6 @@
+date: 2024-11-12
+title: UI/UX Design Sprint
+category: Initiative
+cancelled: false
+---
 Students designed and prototyped interfaces for a school app concept.

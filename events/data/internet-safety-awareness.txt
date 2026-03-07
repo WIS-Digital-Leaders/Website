@@ -1,1 +1,6 @@
+date: 2026-04-14
+title: Internet Safety Awareness
+category: Talk
+cancelled: false
+---
 Raising awareness about online safety, phishing, and secure passwords.

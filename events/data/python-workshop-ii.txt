@@ -1,1 +1,6 @@
+date: 2025-01-14
+title: Python Workshop II
+category: Workshop
+cancelled: false
+---
 Intermediate Python: file handling, APIs, and data visualisation.

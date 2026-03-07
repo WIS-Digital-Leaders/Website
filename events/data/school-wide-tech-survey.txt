@@ -1,1 +1,6 @@
+date: 2026-05-07
+title: School-Wide Tech Survey
+category: Initiative
+cancelled: false
+---
 Gathering data on technology use and challenges across WIS to guide initiatives.

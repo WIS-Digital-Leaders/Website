@@ -1,1 +1,6 @@
+date: 2026-10-01
+title: Autumn Hackathon 2026
+category: Hackathon
+cancelled: false
+---
 Fast-paced hackathon at the start of the autumn term with cross-team challenges.

@@ -1,1 +1,6 @@
+date: 2026-05-01
+title: Leadership Skills Panel
+category: Talk
+cancelled: false
+---
 Senior Digital Leaders share experiences of leadership and teamwork.

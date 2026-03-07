@@ -1,1 +1,6 @@
+date: 2024-04-18
+title: Digital Photography Workshop
+category: Workshop
+cancelled: false
+---
 Using smartphones and free tools to create compelling digital photography.

@@ -1,1 +1,6 @@
+date: 2026-04-18
+title: App Design Challenge
+category: Initiative
+cancelled: false
+---
 Design a mobile app prototype in 60 minutes — compete for best concept.

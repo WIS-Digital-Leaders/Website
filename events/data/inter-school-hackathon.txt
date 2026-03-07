@@ -1,1 +1,6 @@
+date: 2025-02-20
+title: Inter-School Hackathon
+category: Hackathon
+cancelled: false
+---
 Digital Leaders competed against other schools in a collaborative problem-solving hackathon focused on sustainability.

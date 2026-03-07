@@ -1,1 +1,6 @@
+date: 2026-03-19
+title: Spring Project Showcase
+category: Showcase
+cancelled: false
+---
 Digital Leaders present their spring term projects to students, staff, and guests.

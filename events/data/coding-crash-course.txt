@@ -1,1 +1,6 @@
+date: 2024-10-25
+title: Coding Crash Course
+category: Workshop
+cancelled: false
+---
 Hands-on coding for beginners — building confidence with Python fundamentals.

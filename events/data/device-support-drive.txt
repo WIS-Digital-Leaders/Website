@@ -1,1 +1,6 @@
+date: 2026-05-15
+title: Device Support Drive
+category: Support
+cancelled: false
+---
 Drop-in support for students with device issues, software questions, or account problems.
