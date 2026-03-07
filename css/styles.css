@@ -689,18 +689,27 @@ body.dark-theme .carousel-card p {
 /* ── Event status colours ──────────────────────────── */
 .carousel-card.past-event,
 .card.past-event {
-  background: #e6f4ea;
-  border-color: #a8d5b0;
+  background: #d4edda;
+  border-color: #5cb85c;
+  border-left: 5px solid #28a745;
 }
 .carousel-card.upcoming-event,
 .card.upcoming-event {
-  background: #fde8e8;
-  border-color: #f5b8b8;
+  background: #cce5ff;
+  border-color: #4dabf7;
+  border-left: 5px solid #0077ff;
 }
 .carousel-card.cancelled-event,
 .card.cancelled-event {
-  background: #fffde7;
-  border-color: #f9e275;
+  background: #fff3cd;
+  border-color: #ffc107;
+  border-left: 5px solid #fd7e14;
+  opacity: 0.85;
+}
+.carousel-card.cancelled-event h2,
+.card.cancelled-event .event-grid-title {
+  text-decoration: line-through;
+  text-decoration-color: #fd7e14;
 }
 /* ── Today marker (carousel) ─────────────────────── */
 .today-marker {
@@ -760,18 +769,25 @@ body.dark-theme .carousel-card p {
 /* ── Dark theme: status colours ──────────────────── */
 body.dark-theme .carousel-card.past-event,
 body.dark-theme .card.past-event {
-  background: #1a2e1d;
-  border-color: #2d5a34;
+  background: #1a3326;
+  border-color: #28a745;
+  border-left-color: #48c774;
 }
 body.dark-theme .carousel-card.upcoming-event,
 body.dark-theme .card.upcoming-event {
-  background: #2d1a1a;
-  border-color: #5a2d2d;
+  background: #1a2840;
+  border-color: #4dabf7;
+  border-left-color: #74c0fc;
 }
 body.dark-theme .carousel-card.cancelled-event,
 body.dark-theme .card.cancelled-event {
-  background: #2d2a14;
-  border-color: #5a5020;
+  background: #2d2510;
+  border-color: #ffc107;
+  border-left-color: #fd7e14;
+}
+body.dark-theme .carousel-card.cancelled-event h2,
+body.dark-theme .card.cancelled-event .event-grid-title {
+  text-decoration-color: #fd7e14;
 }
 body.dark-theme .today-marker {
   background: #1e1e1e;
@@ -1070,6 +1086,106 @@ body.dark-theme .sort-select {
   color: var(--muted);
   font-size: 0.9rem;
   margin: 0;
+}
+
+/* ── Events key/legend ───────────────────────────── */
+.events-key {
+  max-width: var(--max);
+  margin: 0 auto 1rem;
+  padding: 0 var(--space);
+}
+.events-key__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+.events-key__label {
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 0.25rem;
+}
+.events-key__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 3px 12px 3px 9px;
+  border-radius: 6px;
+  font-weight: 600;
+  border-left: 4px solid transparent;
+}
+.events-key__item.past {
+  background: #d4edda;
+  border-left-color: #28a745;
+  color: #155724;
+}
+.events-key__item.upcoming {
+  background: #cce5ff;
+  border-left-color: #0077ff;
+  color: #004085;
+}
+.events-key__item.cancelled {
+  background: #fff3cd;
+  border-left-color: #fd7e14;
+  color: #7d4e00;
+}
+body.dark-theme .events-key__inner {
+  background: #1e1e1e;
+  border-color: #333;
+}
+body.dark-theme .events-key__item.past {
+  background: #1a3326;
+  color: #8fcf9f;
+}
+body.dark-theme .events-key__item.upcoming {
+  background: #1a2840;
+  color: #74c0fc;
+}
+body.dark-theme .events-key__item.cancelled {
+  background: #2d2510;
+  color: #ffc107;
+}
+
+/* ── Grid pagination ─────────────────────────────── */
+.grid-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem var(--space) 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.pagination-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.pagination-btn:hover:not(:disabled) {
+  background: var(--brand-2);
+  transform: translateY(-1px);
+}
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  min-width: 140px;
+  text-align: center;
 }
 
 /* ── Recruitment page ────────────────────────────── */

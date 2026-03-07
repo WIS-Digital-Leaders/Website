@@ -64,8 +64,17 @@
   <!-- Main content -->
   <main>
     <section class="page-header">
-      <h1>Previous Events</h1>
+      <h1>Events</h1>
       <p>Highlights from hackathons, workshops, stalls, talks, and initiatives led by Digital Leaders.</p>
+    </section>
+
+    <section class="events-key" aria-label="Event status key">
+      <div class="events-key__inner">
+        <span class="events-key__label">Key:</span>
+        <span class="events-key__item past">✅ Past Event</span>
+        <span class="events-key__item upcoming">🔜 Upcoming Event</span>
+        <span class="events-key__item cancelled">❌ Cancelled</span>
+      </div>
     </section>
 
     <section class="events-controls">
@@ -100,6 +109,11 @@
 
     <section class="events-grid-section" id="events-grid-section" style="display:none">
       <div class="grid cards" id="events-grid"></div>
+      <div class="grid-pagination" id="grid-pagination" style="display:none">
+        <button class="pagination-btn" id="grid-prev-page" aria-label="Previous page">‹ Prev</button>
+        <span class="pagination-info" id="pagination-info"></span>
+        <button class="pagination-btn" id="grid-next-page" aria-label="Next page">Next ›</button>
+      </div>
     </section>
 
     <p class="carousel-empty" id="carousel-empty" hidden></p>
@@ -140,6 +154,7 @@
   <script src="../javascript/script.js"></script>
   <script>
     const EVENTS = [
+      // ── Original events ────────────────────────────────────────
       { date: '2024-09-05', title: 'Kick-Off Assembly', description: 'Introduction to Digital Leaders for new members and interested students.', category: 'Talk' },
       { date: '2024-09-20', title: 'Automation Basics', description: 'Intro workshop on scripts and workflow optimisation using Google Apps Script.', category: 'Workshop' },
       { date: '2024-10-08', title: 'Digital Safety Day', description: 'Session on cybersecurity, privacy, and responsible tech use for Year 9.', category: 'Workshop' },
@@ -166,6 +181,83 @@
       { date: '2026-03-12', title: 'Digital Inclusion Initiative', description: 'Planning session for a school-wide drive to improve access to digital resources for all students.', category: 'Initiative', cancelled: true },
       { date: '2026-03-15', title: 'Device Drop-In Support', description: 'Open drop-in for students and staff needing help with devices, apps, or accounts.', category: 'Support' },
       { date: '2026-03-19', title: 'Spring Project Showcase', description: 'Digital Leaders present their spring term projects to students, staff, and guests.', category: 'Showcase' },
+      // ── 40 additional past events ──────────────────────────────
+      { date: '2023-09-07', title: 'Inaugural Assembly', description: 'First-ever Digital Leaders assembly, introducing the programme to the WIS community.', category: 'Talk' },
+      { date: '2023-09-21', title: 'Digital Literacy Workshop', description: 'Foundational session covering essential digital skills for the modern classroom.', category: 'Workshop' },
+      { date: '2023-10-05', title: 'Hardware Basics Talk', description: 'Understanding the components of computers and devices used at school.', category: 'Talk' },
+      { date: '2023-10-19', title: 'Spreadsheet Skills', description: 'Advanced Google Sheets techniques for data analysis and school projects.', category: 'Workshop' },
+      { date: '2023-11-02', title: 'WIS Open Day Stall', description: 'First Digital Leaders stall at WIS Open Day showcasing student-led initiatives.', category: 'Stall' },
+      { date: '2023-11-16', title: 'Scratch Coding Intro', description: 'Block-based programming for Year 7 students — building games and animations.', category: 'Workshop' },
+      { date: '2023-12-07', title: 'Year-End Reflection Talk', description: 'Digital Leaders reflect on the founding year and share learnings with the school.', category: 'Talk' },
+      { date: '2024-01-18', title: 'New Year Kickoff', description: 'Planning session for second-term Digital Leaders activities and goals.', category: 'Initiative' },
+      { date: '2024-02-08', title: 'Google Workspace Deep-Dive', description: 'Maximising productivity with Google Docs, Drive, Slides, and Forms for school work.', category: 'Workshop' },
+      { date: '2024-02-22', title: 'First Hackathon Planning', description: 'Organising and planning the first-ever WIS hackathon event for spring term.', category: 'Initiative' },
+      { date: '2024-03-07', title: 'Canva Design Workshop', description: 'Hands-on session creating professional-looking digital content with Canva.', category: 'Workshop' },
+      { date: '2024-03-21', title: 'First WIS Hackathon', description: 'Inaugural hackathon: students designed apps for school community challenges.', category: 'Hackathon' },
+      { date: '2024-04-04', title: 'Science Fair Tech Stall', description: 'Demonstrating digital tools and coding projects alongside the WIS Science Fair.', category: 'Stall' },
+      { date: '2024-04-18', title: 'Digital Photography Workshop', description: 'Using smartphones and free tools to create compelling digital photography.', category: 'Workshop' },
+      { date: '2024-05-02', title: 'Tech in Everyday Life', description: 'Student-led talk on how digital tools impact daily life and study habits.', category: 'Talk' },
+      { date: '2024-05-16', title: 'Accessibility Awareness', description: 'Exploring how digital design can be more accessible and inclusive for all users.', category: 'Initiative' },
+      { date: '2024-06-06', title: 'End-of-Year Showcase 2024', description: 'Digital Leaders present highlights from the first full academic year.', category: 'Showcase' },
+      { date: '2024-06-20', title: 'Peer Mentoring Launch', description: 'Launch of structured peer mentoring pairs for digital skills support.', category: 'Support' },
+      { date: '2024-07-04', title: 'Summer Project Briefing', description: 'Briefing for Digital Leaders taking on summer tech projects for the school.', category: 'Initiative' },
+      { date: '2024-08-22', title: 'Pre-Term Setup Session', description: 'Supporting teachers and students in setting up devices and apps for the new year.', category: 'Support' },
+      { date: '2024-09-12', title: 'Typing Speed Challenge', description: 'Fun team competition to test and improve typing speed and accuracy.', category: 'Initiative' },
+      { date: '2024-09-26', title: 'Network Security Talk', description: 'Understanding how school networks work and how to stay safe on shared connections.', category: 'Talk' },
+      { date: '2024-10-03', title: 'Python Beginners Sprint', description: 'Crash course in Python for students with no prior coding experience.', category: 'Workshop' },
+      { date: '2024-10-31', title: 'Halloween Tech Quiz', description: 'Spooky tech trivia quiz — Digital Leaders vs the rest of the school!', category: 'Initiative' },
+      { date: '2024-11-07', title: 'Email Etiquette Talk', description: 'Best practices for professional email communication in school and work settings.', category: 'Talk' },
+      { date: '2024-12-12', title: 'Holiday Tech Gift Guide', description: 'Digital Leaders recommend the best tech resources and tools for the holiday season.', category: 'Talk' },
+      { date: '2025-01-09', title: 'New Term Planning', description: 'Kickoff planning session for spring term Digital Leaders activities.', category: 'Initiative' },
+      { date: '2025-02-06', title: 'Cloud Computing Workshop', description: 'Understanding cloud services, storage, and collaboration tools in everyday use.', category: 'Workshop' },
+      { date: '2025-02-13', title: "Valentine's Tech Stall", description: "Interactive stall for Valentine's Day, promoting digital creativity and fun apps.", category: 'Stall' },
+      { date: '2025-03-03', title: 'Data Privacy Day Talk', description: 'Raising awareness of personal data, privacy settings, and digital footprints.', category: 'Talk' },
+      { date: '2025-04-03', title: 'Drone Technology Demo', description: 'Live demonstration of drone capabilities and programming basics.', category: 'Workshop' },
+      { date: '2025-04-17', title: 'Digital Art Workshop', description: 'Creating digital illustrations and graphics using free online tools.', category: 'Workshop' },
+      { date: '2025-05-01', title: 'STEM Careers Talk', description: 'Professionals in tech share insights on careers in STEM fields.', category: 'Talk' },
+      { date: '2025-06-12', title: 'Digital Leaders Annual Report', description: 'Presenting the Digital Leaders annual impact report to the school community.', category: 'Showcase' },
+      { date: '2025-07-10', title: 'Summer Coding Workshop', description: 'Continuation of projects and skills during the summer break for keen coders.', category: 'Workshop' },
+      { date: '2025-08-14', title: 'New Year Device Setup', description: 'Helping new Year 7 students set up school accounts and devices before term starts.', category: 'Support' },
+      { date: '2025-09-04', title: 'Kick-Off Assembly 2025', description: 'Introduction to the 2025–26 Digital Leaders cohort and their plans for the year.', category: 'Talk' },
+      { date: '2025-10-09', title: 'Cybersecurity Awareness Month', description: 'Special events and challenges throughout October celebrating Cybersecurity Awareness Month.', category: 'Initiative' },
+      { date: '2025-11-06', title: 'Machine Learning Basics', description: 'Introduction to machine learning concepts using Python and accessible datasets.', category: 'Workshop' },
+      { date: '2025-12-04', title: 'Year Review Showcase', description: 'End of autumn term showcase of Digital Leaders projects and achievements for 2025.', category: 'Showcase' },
+      // ── 35 additional future events ────────────────────────────
+      { date: '2026-03-20', title: 'AI Tools in Education', description: 'Exploring how AI tools can enhance learning and productivity at WIS.', category: 'Talk' },
+      { date: '2026-03-22', title: 'Website Refresh Workshop', description: 'Collaborative session to redesign key pages of the Digital Leaders website.', category: 'Workshop' },
+      { date: '2026-03-26', title: 'Digital Skills Peer Mentoring', description: 'Pairing Digital Leaders with students seeking help on digital projects.', category: 'Support' },
+      { date: '2026-03-29', title: 'Spring Hackathon 2026', description: 'Teams tackle real WIS challenges in a focused two-hour hackathon sprint.', category: 'Hackathon' },
+      { date: '2026-04-02', title: 'Data Literacy Intro', description: 'Understanding data: how to collect, interpret, and visualise information responsibly.', category: 'Workshop' },
+      { date: '2026-04-09', title: 'Student Tech Innovation Showcase', description: 'Highlighting student-led tech projects from across the school.', category: 'Showcase' },
+      { date: '2026-04-14', title: 'Internet Safety Awareness', description: 'Raising awareness about online safety, phishing, and secure passwords.', category: 'Talk' },
+      { date: '2026-04-18', title: 'App Design Challenge', description: 'Design a mobile app prototype in 60 minutes — compete for best concept.', category: 'Initiative' },
+      { date: '2026-04-23', title: 'Digital Skills Fair Stall', description: 'Interactive stall at the WIS Spring Fair highlighting Digital Leaders activities.', category: 'Stall' },
+      { date: '2026-04-28', title: 'Debugging Bootcamp', description: 'Intensive session on debugging strategies for Python and JavaScript projects.', category: 'Workshop' },
+      { date: '2026-05-01', title: 'Leadership Skills Panel', description: 'Senior Digital Leaders share experiences of leadership and teamwork.', category: 'Talk' },
+      { date: '2026-05-07', title: 'School-Wide Tech Survey', description: 'Gathering data on technology use and challenges across WIS to guide initiatives.', category: 'Initiative' },
+      { date: '2026-05-12', title: 'Game Design Introduction', description: 'Building simple games with Scratch and Python — for beginners.', category: 'Workshop' },
+      { date: '2026-05-15', title: 'Device Support Drive', description: 'Drop-in support for students with device issues, software questions, or account problems.', category: 'Support' },
+      { date: '2026-05-20', title: 'WIS Tech Week Stall', description: 'Showcase of Digital Leaders projects and initiatives during WIS Tech Week.', category: 'Stall' },
+      { date: '2026-05-26', title: 'Cybersecurity Competition', description: 'Inter-house cybersecurity challenge testing knowledge of safe online practices.', category: 'Initiative' },
+      { date: '2026-06-02', title: 'Year 7 Tech Induction', description: 'Helping Year 7 students get set up and confident with school digital tools.', category: 'Support' },
+      { date: '2026-06-06', title: 'Podcast Production Workshop', description: 'Recording and editing a Digital Leaders podcast episode on tech trends.', category: 'Workshop' },
+      { date: '2026-06-11', title: 'Design Showcase Exhibition', description: 'Digital Leaders design team presents visual work and brand projects.', category: 'Showcase' },
+      { date: '2026-06-16', title: 'End of Year Hackathon', description: 'Celebratory hackathon to close out the academic year with creative tech challenges.', category: 'Hackathon' },
+      { date: '2026-06-20', title: 'Community Tech Stall', description: 'Engaging the broader WIS community with interactive digital activities at a community event.', category: 'Stall' },
+      { date: '2026-06-25', title: 'Graduation Ceremony Tech Support', description: 'Digital Leaders provide technical support and live streaming for the graduation ceremony.', category: 'Support' },
+      { date: '2026-06-30', title: 'Year-End Showcase 2026', description: 'Celebrating achievements and welcoming the incoming class of Digital Leaders.', category: 'Showcase' },
+      { date: '2026-07-05', title: 'Summer Coding Club', description: 'Optional summer coding sessions for Digital Leaders wanting to build new skills.', category: 'Workshop' },
+      { date: '2026-07-15', title: 'Research Symposium 2026', description: 'Sharing research findings on AI, automation, and digital wellbeing from the academic year.', category: 'Showcase' },
+      { date: '2026-08-10', title: 'New Members Orientation', description: 'Welcoming new Digital Leaders and introducing them to the programme structure.', category: 'Talk' },
+      { date: '2026-08-20', title: 'Back-to-School Tech Fair', description: 'Interactive stall helping students set up devices and get ready for the new academic year.', category: 'Stall' },
+      { date: '2026-09-03', title: 'Kick-Off Assembly 2026', description: 'Introduction to the Digital Leaders programme for new and returning members.', category: 'Talk' },
+      { date: '2026-09-10', title: 'Python Fundamentals Workshop', description: 'Refresher and advanced session on Python for returning members.', category: 'Workshop' },
+      { date: '2026-09-17', title: 'Peer Support Launch', description: 'Opening of the new peer support drop-in schedule for the 2026–27 academic year.', category: 'Support' },
+      { date: '2026-09-24', title: 'Digital Ethics Discussion', description: 'Open forum on digital ethics, data privacy, and responsible AI use.', category: 'Talk' },
+      { date: '2026-10-01', title: 'Autumn Hackathon 2026', description: 'Fast-paced hackathon at the start of the autumn term with cross-team challenges.', category: 'Hackathon' },
+      { date: '2026-10-08', title: 'Tech Leaders Panel', description: 'WIS alumni in tech careers speak to Digital Leaders about pathways and opportunities.', category: 'Talk' },
+      { date: '2026-10-15', title: 'Open Day Stall 2026', description: 'Digital Leaders run an interactive tech stall at the WIS Open Day for prospective families.', category: 'Stall' },
+      { date: '2026-10-22', title: 'Code Review Workshop', description: 'Learning to read, review, and improve code collaboratively as a team.', category: 'Workshop' },
     ];
 
     function formatDate(dateStr) {
@@ -211,10 +303,12 @@
       Stall: '#1abc9c',
     };
 
+    const GRID_PAGE_SIZE = 25;
     let currentIndex = 0;
     let currentView = 'carousel';
     let gridCategory = 'all';
     let gridSort = 'asc';
+    let gridPage = 0;
 
     function buildCarousel(fromDate) {
       const track = document.getElementById('carousel-track');
@@ -290,6 +384,7 @@
         }
         btn.addEventListener('click', () => {
           gridCategory = cat;
+          gridPage = 0;
           container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           buildGrid();
@@ -302,6 +397,10 @@
       const grid = document.getElementById('events-grid');
       const empty = document.getElementById('grid-empty');
       const countEl = document.getElementById('grid-count');
+      const pagination = document.getElementById('grid-pagination');
+      const prevBtn = document.getElementById('grid-prev-page');
+      const nextBtn = document.getElementById('grid-next-page');
+      const pageInfo = document.getElementById('pagination-info');
       const today = getTodayString();
 
       let filtered = gridCategory === 'all'
@@ -318,15 +417,24 @@
         empty.textContent = 'No events found for this category.';
         empty.hidden = false;
         countEl.textContent = '';
+        pagination.style.display = 'none';
         return;
       }
 
       empty.hidden = true;
+
+      const totalPages = Math.ceil(filtered.length / GRID_PAGE_SIZE);
+      if (gridPage >= totalPages) gridPage = totalPages - 1;
+
+      const start = gridPage * GRID_PAGE_SIZE;
+      const end = Math.min(start + GRID_PAGE_SIZE, filtered.length);
+      const pageItems = filtered.slice(start, end);
+
       countEl.textContent = filtered.length + ' event' + (filtered.length !== 1 ? 's' : '');
 
       let todayInserted = false;
 
-      filtered.forEach((ev) => {
+      pageItems.forEach((ev) => {
         if (!todayInserted) {
           if (gridSort === 'asc' && ev.date >= today) {
             todayInserted = true;
@@ -349,9 +457,14 @@
         grid.appendChild(card);
       });
 
-      // All events are future (asc) or all are past (desc) — append divider at the end
-      if (!todayInserted) {
-        grid.appendChild(createTodayDivider());
+      // Show pagination only when there are multiple pages
+      if (totalPages > 1) {
+        pagination.style.display = '';
+        prevBtn.disabled = gridPage === 0;
+        nextBtn.disabled = gridPage >= totalPages - 1;
+        pageInfo.textContent = 'Page ' + (gridPage + 1) + ' of ' + totalPages + ' · showing ' + (start + 1) + '–' + end;
+      } else {
+        pagination.style.display = 'none';
       }
     }
 
@@ -369,6 +482,7 @@
 
       document.getElementById('sort-order').addEventListener('change', (e) => {
         gridSort = e.target.value;
+        gridPage = 0;
         buildGrid();
       });
 
@@ -378,6 +492,15 @@
       document.getElementById('carousel-next').addEventListener('click', () => {
         const cards = document.querySelectorAll('.carousel-card, .today-marker');
         if (currentIndex < cards.length - 1) { currentIndex++; updateCarousel(); }
+      });
+
+      document.getElementById('grid-prev-page').addEventListener('click', () => {
+        if (gridPage > 0) { gridPage--; buildGrid(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      });
+      document.getElementById('grid-next-page').addEventListener('click', () => {
+        gridPage++;
+        buildGrid();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       window.addEventListener('resize', updateCarousel);
