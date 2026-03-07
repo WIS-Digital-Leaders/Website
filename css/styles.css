@@ -891,7 +891,80 @@ body.dark-theme .view-btn:hover {
   max-width: var(--max);
   margin: 0 auto var(--space-lg);
   padding: 0 var(--space);
-}.event-grid-title {
+}
+.grid-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  flex-wrap: wrap;
+  flex: 1;
+}
+.category-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.filter-btn:hover {
+  background: var(--filter-colour, var(--brand));
+  color: #fff;
+  border-color: var(--filter-colour, var(--brand));
+}
+.filter-btn.active {
+  background: var(--filter-colour, var(--brand));
+  color: #fff;
+  border-color: var(--filter-colour, var(--brand));
+}
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.sort-select {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text);
+  transition: border 0.2s ease;
+}
+.sort-select:focus {
+  border-color: var(--brand);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,119,255,0.2);
+}
+.event-count {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+body.dark-theme .filter-btn {
+  border-color: #444;
+  color: #eee;
+}
+body.dark-theme .sort-select {
+  background: #222;
+  border-color: #444;
+  color: #eee;
+}
+.event-grid-title {
   margin: 0.5rem 0 0.4rem;
   font-size: 1.1rem;
 }
