@@ -1,10 +1,211 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Events | WIS Digital Leaders</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* ── Events page extra styles ─────────────────────── */
+    .events-stats {
+      max-width: var(--max);
+      margin: 0 auto var(--space);
+      padding: 0 var(--space);
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1.5px solid transparent;
+    }
+    .stat-pill--total  { background: #f0f4ff; border-color: #c0d0ff; color: #3355aa; }
+    .stat-pill--past   { background: #d4edda; border-color: #5cb85c; color: #1a6a2a; }
+    .stat-pill--upcoming { background: #cce5ff; border-color: #4dabf7; color: #0055aa; }
+    .stat-pill--cancelled { background: #fff3cd; border-color: #ffc107; color: #7a4f00; }
+    body.dark-theme .stat-pill--total    { background: #1a2240; border-color: #3355aa; color: #aac0ff; }
+    body.dark-theme .stat-pill--past     { background: #1a3326; border-color: #28a745; color: #48c774; }
+    body.dark-theme .stat-pill--upcoming { background: #1a2840; border-color: #4dabf7; color: #74c0fc; }
+    body.dark-theme .stat-pill--cancelled{ background: #2d2510; border-color: #ffc107; color: #ffc107; }
+
+    /* ── Loading / error states ───────────────────────── */
+    .events-loader {
+      text-align: center;
+      padding: 3rem var(--space);
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    .events-loader__spinner {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 4px solid #ddd;
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+      margin-bottom: 0.75rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Improved card styles ─────────────────────────── */
+    .carousel-card,
+    .card {
+      position: relative;
+      overflow: hidden;
+    }
+    .card-cat-bar {
+      height: 4px;
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      margin: -1.25rem -1.25rem 0.75rem;
+      width: calc(100% + 2.5rem);
+    }
+    .event-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .event-cat-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .event-status-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      white-space: nowrap;
+      align-self: flex-start;
+      flex-shrink: 0;
+    }
+    .badge--past     { background: #d4edda; color: #1a6a2a; }
+    .badge--upcoming { background: #cce5ff; color: #0055aa; }
+    .badge--cancelled{ background: #fff3cd; color: #7a4f00; }
+    .badge--today    { background: #f39c12; color: #fff; }
+    body.dark-theme .badge--past      { background: #1a3326; color: #48c774; }
+    body.dark-theme .badge--upcoming  { background: #1a2840; color: #74c0fc; }
+    body.dark-theme .badge--cancelled { background: #2d2510; color: #ffc107; }
+
+    /* ── "Add event" guide banner ─────────────────────── */
+    .add-event-banner {
+      max-width: var(--max);
+      margin: var(--space) auto;
+      padding: 0 var(--space);
+    }
+    .add-event-banner details {
+      background: #f0f8ff;
+      border: 1.5px solid #b0d4ff;
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    body.dark-theme .add-event-banner details {
+      background: #1a2840;
+      border-color: #3355aa;
+    }
+    .add-event-banner summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--brand);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .add-event-banner summary::-webkit-details-marker { display: none; }
+    .add-event-banner summary::before {
+      content: '▶';
+      font-size: 0.65rem;
+      transition: transform 0.2s ease;
+    }
+    .add-event-banner details[open] summary::before { transform: rotate(90deg); }
+    .add-event-banner pre {
+      background: #e8f4ff;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+    body.dark-theme .add-event-banner pre { background: #12243a; }
+    .add-event-banner ol {
+      margin: 0.5rem 0 0 1.2rem;
+      line-height: 2;
+    }
+
+    /* ── Jump-to-today button ─────────────────────────── */
+    .btn-today {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1.5px solid var(--brand);
+      background: transparent;
+      color: var(--brand);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-today:hover { background: var(--brand); color: #fff; }
+
+    /* ── Search highlight ─────────────────────────────── */
+    .search-highlight {
+      background: #fff176;
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+    body.dark-theme .search-highlight { background: #7a6a00; color: #fff; }
+
+    /* ── Grid search bar ──────────────────────────────── */
+    .grid-search {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .grid-search:focus-within {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(0,119,255,0.15);
+    }
+    .grid-search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 6px 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--text);
+    }
+    .grid-search-clear {
+      background: none;
+      border: none;
+      padding: 0 8px;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    body.dark-theme .grid-search { border-color: #444; background: #222; }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -68,6 +269,15 @@
       <p>Highlights from hackathons, workshops, stalls, talks, and initiatives led by Digital Leaders.</p>
     </section>
 
+    <!-- Stats bar -->
+    <div class="events-stats" id="events-stats" aria-label="Event summary" hidden>
+      <span class="stat-pill stat-pill--total"  id="stat-total"></span>
+      <span class="stat-pill stat-pill--past"   id="stat-past"></span>
+      <span class="stat-pill stat-pill--upcoming" id="stat-upcoming"></span>
+      <span class="stat-pill stat-pill--cancelled" id="stat-cancelled"></span>
+    </div>
+
+    <!-- Status key -->
     <section class="events-key" aria-label="Event status key">
       <div class="events-key__inner">
         <span class="events-key__label">Key:</span>
@@ -77,12 +287,18 @@
       </div>
     </section>
 
+    <!-- Controls -->
     <section class="events-controls">
       <div id="carousel-controls" class="carousel-controls">
         <label for="event-date-picker">Browse events from:</label>
         <input type="date" id="event-date-picker" class="date-picker">
+        <button class="btn-today" id="btn-jump-today" type="button">📅 Jump to today</button>
       </div>
       <div id="grid-controls" class="grid-controls" style="display:none">
+        <div class="grid-search" id="grid-search-wrap">
+          <input class="grid-search-input" id="grid-search-input" type="search" placeholder="Search events…" aria-label="Search events">
+          <button class="grid-search-clear" id="grid-search-clear" aria-label="Clear search" hidden>✕</button>
+        </div>
         <div class="category-filters" id="category-filters" role="group" aria-label="Filter by category"></div>
         <div class="sort-controls">
           <label for="sort-order">Sort:</label>
@@ -99,7 +315,14 @@
       </div>
     </section>
 
-    <section class="carousel-section" id="carousel-section">
+    <!-- Loading indicator -->
+    <div class="events-loader" id="events-loader">
+      <div class="events-loader__spinner"></div>
+      <div>Loading events…</div>
+    </div>
+
+    <!-- Carousel view -->
+    <section class="carousel-section" id="carousel-section" style="display:none">
       <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous">&#8249;</button>
       <div class="carousel-track-wrap">
         <div class="carousel-track" id="carousel-track"></div>
@@ -107,6 +330,7 @@
       <button class="carousel-btn next" id="carousel-next" aria-label="Next">&#8250;</button>
     </section>
 
+    <!-- Grid view -->
     <section class="events-grid-section" id="events-grid-section" style="display:none">
       <div class="grid cards" id="events-grid"></div>
       <div class="grid-pagination" id="grid-pagination" style="display:none">
@@ -118,6 +342,27 @@
 
     <p class="carousel-empty" id="carousel-empty" hidden></p>
     <p class="carousel-empty" id="grid-empty" hidden></p>
+
+    <!-- How to add new events -->
+    <div class="add-event-banner">
+      <details>
+        <summary>➕ How to add a new event</summary>
+        <ol>
+          <li>Create a new <code>.txt</code> file in <code>events/data/</code> — use the event title as the filename (lowercase, hyphens instead of spaces).</li>
+          <li>Put the event description as plain text inside the file.</li>
+          <li>Add a new entry to <code>events/data/events.json</code> in date order:</li>
+        </ol>
+        <pre>{
+  "date": "YYYY-MM-DD",
+  "title": "My New Event",
+  "category": "Workshop",
+  "cancelled": false,
+  "file": "my-new-event.txt",
+  "description": "A short description of the event."
+}</pre>
+        <p style="margin-top:0.6rem">Categories: <strong>Workshop · Talk · Initiative · Support · Showcase · Hackathon · Stall</strong></p>
+      </details>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -153,112 +398,34 @@
 
   <script src="../javascript/script.js"></script>
   <script>
-    const EVENTS = [
-      // ── Original events ────────────────────────────────────────
-      { date: '2024-09-05', title: 'Kick-Off Assembly', description: 'Introduction to Digital Leaders for new members and interested students.', category: 'Talk' },
-      { date: '2024-09-20', title: 'Automation Basics', description: 'Intro workshop on scripts and workflow optimisation using Google Apps Script.', category: 'Workshop' },
-      { date: '2024-10-08', title: 'Digital Safety Day', description: 'Session on cybersecurity, privacy, and responsible tech use for Year 9.', category: 'Workshop' },
-      { date: '2024-10-25', title: 'Coding Crash Course', description: 'Hands-on coding for beginners — building confidence with Python fundamentals.', category: 'Workshop' },
-      { date: '2024-11-12', title: 'UI/UX Design Sprint', description: 'Students designed and prototyped interfaces for a school app concept.', category: 'Initiative' },
-      { date: '2024-11-28', title: 'AI & Ethics Panel', description: 'Open discussion on artificial intelligence, bias, and responsible development.', category: 'Talk' },
-      { date: '2024-12-06', title: 'Year-End Showcase', description: 'Digital Leaders present projects and achievements from the first term.', category: 'Showcase' },
-      { date: '2025-01-14', title: 'Python Workshop II', description: 'Intermediate Python: file handling, APIs, and data visualisation.', category: 'Workshop' },
-      { date: '2025-01-30', title: 'Peer Support Drive', description: 'Open drop-in sessions for students needing help with devices and apps.', category: 'Support' },
-      { date: '2025-02-11', title: 'Web Development Intro', description: 'Building responsive websites with HTML, CSS, and JavaScript from scratch.', category: 'Workshop' },
-      { date: '2025-02-27', title: 'Research Symposium', description: 'Digital Leaders share findings on automation tools and digital literacy.', category: 'Showcase' },
-      { date: '2025-03-14', title: 'Robotics Demo', description: 'Hands-on demonstration of robotics kits and programming concepts.', category: 'Workshop' },
-      { date: '2025-03-28', title: 'Hackathon Prep', description: 'Team-building and ideation session ahead of the school hackathon.', category: 'Initiative' },
-      { date: '2025-04-10', title: 'School Hackathon', description: '24-hour challenge: teams build solutions to real WIS tech challenges.', category: 'Hackathon' },
-      { date: '2025-05-06', title: 'App Store Workshop', description: 'How to package, publish, and present an app to a real audience.', category: 'Workshop' },
-      { date: '2025-05-22', title: 'Digital Wellbeing Talk', description: 'Balancing screen time, mental health, and healthy digital habits.', category: 'Talk' },
-      { date: '2025-06-05', title: 'End-of-Year Celebration', description: 'Celebrating achievements and welcoming incoming Digital Leaders.', category: 'Showcase' },
-      { date: '2024-10-15', title: 'Open Day Tech Stall', description: 'Digital Leaders ran an interactive tech stall at the WIS Open Day, showcasing student projects to prospective families.', category: 'Stall' },
-      { date: '2024-11-20', title: 'STEM Fair Stall', description: 'Represented Digital Leaders at the school STEM Fair with demos on coding, robotics, and app development.', category: 'Stall' },
-      { date: '2025-03-07', title: 'Community Expo Stall', description: 'Staffed a stall at the local community technology expo, engaging the public with hands-on digital activities.', category: 'Stall' },
-      { date: '2025-02-20', title: 'Inter-School Hackathon', description: 'Digital Leaders competed against other schools in a collaborative problem-solving hackathon focused on sustainability.', category: 'Hackathon' },
-      { date: '2026-03-05', title: 'Spring Kick-Off Workshop', description: 'Hands-on session introducing new tools and projects for the spring term.', category: 'Workshop', cancelled: true },
-      { date: '2026-03-08', title: 'Tech Trends Talk', description: 'An overview of emerging technologies and their impact on schools and communities.', category: 'Talk' },
-      { date: '2026-03-12', title: 'Digital Inclusion Initiative', description: 'Planning session for a school-wide drive to improve access to digital resources for all students.', category: 'Initiative', cancelled: true },
-      { date: '2026-03-15', title: 'Device Drop-In Support', description: 'Open drop-in for students and staff needing help with devices, apps, or accounts.', category: 'Support' },
-      { date: '2026-03-19', title: 'Spring Project Showcase', description: 'Digital Leaders present their spring term projects to students, staff, and guests.', category: 'Showcase' },
-      // ── 40 additional past events ──────────────────────────────
-      { date: '2023-09-07', title: 'Inaugural Assembly', description: 'First-ever Digital Leaders assembly, introducing the programme to the WIS community.', category: 'Talk' },
-      { date: '2023-09-21', title: 'Digital Literacy Workshop', description: 'Foundational session covering essential digital skills for the modern classroom.', category: 'Workshop' },
-      { date: '2023-10-05', title: 'Hardware Basics Talk', description: 'Understanding the components of computers and devices used at school.', category: 'Talk' },
-      { date: '2023-10-19', title: 'Spreadsheet Skills', description: 'Advanced Google Sheets techniques for data analysis and school projects.', category: 'Workshop' },
-      { date: '2023-11-02', title: 'WIS Open Day Stall', description: 'First Digital Leaders stall at WIS Open Day showcasing student-led initiatives.', category: 'Stall' },
-      { date: '2023-11-16', title: 'Scratch Coding Intro', description: 'Block-based programming for Year 7 students — building games and animations.', category: 'Workshop' },
-      { date: '2023-12-07', title: 'Year-End Reflection Talk', description: 'Digital Leaders reflect on the founding year and share learnings with the school.', category: 'Talk' },
-      { date: '2024-01-18', title: 'New Year Kickoff', description: 'Planning session for second-term Digital Leaders activities and goals.', category: 'Initiative' },
-      { date: '2024-02-08', title: 'Google Workspace Deep-Dive', description: 'Maximising productivity with Google Docs, Drive, Slides, and Forms for school work.', category: 'Workshop' },
-      { date: '2024-02-22', title: 'First Hackathon Planning', description: 'Organising and planning the first-ever WIS hackathon event for spring term.', category: 'Initiative' },
-      { date: '2024-03-07', title: 'Canva Design Workshop', description: 'Hands-on session creating professional-looking digital content with Canva.', category: 'Workshop' },
-      { date: '2024-03-21', title: 'First WIS Hackathon', description: 'Inaugural hackathon: students designed apps for school community challenges.', category: 'Hackathon' },
-      { date: '2024-04-04', title: 'Science Fair Tech Stall', description: 'Demonstrating digital tools and coding projects alongside the WIS Science Fair.', category: 'Stall' },
-      { date: '2024-04-18', title: 'Digital Photography Workshop', description: 'Using smartphones and free tools to create compelling digital photography.', category: 'Workshop' },
-      { date: '2024-05-02', title: 'Tech in Everyday Life', description: 'Student-led talk on how digital tools impact daily life and study habits.', category: 'Talk' },
-      { date: '2024-05-16', title: 'Accessibility Awareness', description: 'Exploring how digital design can be more accessible and inclusive for all users.', category: 'Initiative' },
-      { date: '2024-06-06', title: 'End-of-Year Showcase 2024', description: 'Digital Leaders present highlights from the first full academic year.', category: 'Showcase' },
-      { date: '2024-06-20', title: 'Peer Mentoring Launch', description: 'Launch of structured peer mentoring pairs for digital skills support.', category: 'Support' },
-      { date: '2024-07-04', title: 'Summer Project Briefing', description: 'Briefing for Digital Leaders taking on summer tech projects for the school.', category: 'Initiative' },
-      { date: '2024-08-22', title: 'Pre-Term Setup Session', description: 'Supporting teachers and students in setting up devices and apps for the new year.', category: 'Support' },
-      { date: '2024-09-12', title: 'Typing Speed Challenge', description: 'Fun team competition to test and improve typing speed and accuracy.', category: 'Initiative' },
-      { date: '2024-09-26', title: 'Network Security Talk', description: 'Understanding how school networks work and how to stay safe on shared connections.', category: 'Talk' },
-      { date: '2024-10-03', title: 'Python Beginners Sprint', description: 'Crash course in Python for students with no prior coding experience.', category: 'Workshop' },
-      { date: '2024-10-31', title: 'Halloween Tech Quiz', description: 'Spooky tech trivia quiz — Digital Leaders vs the rest of the school!', category: 'Initiative' },
-      { date: '2024-11-07', title: 'Email Etiquette Talk', description: 'Best practices for professional email communication in school and work settings.', category: 'Talk' },
-      { date: '2024-12-12', title: 'Holiday Tech Gift Guide', description: 'Digital Leaders recommend the best tech resources and tools for the holiday season.', category: 'Talk' },
-      { date: '2025-01-09', title: 'New Term Planning', description: 'Kickoff planning session for spring term Digital Leaders activities.', category: 'Initiative' },
-      { date: '2025-02-06', title: 'Cloud Computing Workshop', description: 'Understanding cloud services, storage, and collaboration tools in everyday use.', category: 'Workshop' },
-      { date: '2025-02-13', title: "Valentine's Tech Stall", description: "Interactive stall for Valentine's Day, promoting digital creativity and fun apps.", category: 'Stall' },
-      { date: '2025-03-03', title: 'Data Privacy Day Talk', description: 'Raising awareness of personal data, privacy settings, and digital footprints.', category: 'Talk' },
-      { date: '2025-04-03', title: 'Drone Technology Demo', description: 'Live demonstration of drone capabilities and programming basics.', category: 'Workshop' },
-      { date: '2025-04-17', title: 'Digital Art Workshop', description: 'Creating digital illustrations and graphics using free online tools.', category: 'Workshop' },
-      { date: '2025-05-01', title: 'STEM Careers Talk', description: 'Professionals in tech share insights on careers in STEM fields.', category: 'Talk' },
-      { date: '2025-06-12', title: 'Digital Leaders Annual Report', description: 'Presenting the Digital Leaders annual impact report to the school community.', category: 'Showcase' },
-      { date: '2025-07-10', title: 'Summer Coding Workshop', description: 'Continuation of projects and skills during the summer break for keen coders.', category: 'Workshop' },
-      { date: '2025-08-14', title: 'New Year Device Setup', description: 'Helping new Year 7 students set up school accounts and devices before term starts.', category: 'Support' },
-      { date: '2025-09-04', title: 'Kick-Off Assembly 2025', description: 'Introduction to the 2025–26 Digital Leaders cohort and their plans for the year.', category: 'Talk' },
-      { date: '2025-10-09', title: 'Cybersecurity Awareness Month', description: 'Special events and challenges throughout October celebrating Cybersecurity Awareness Month.', category: 'Initiative' },
-      { date: '2025-11-06', title: 'Machine Learning Basics', description: 'Introduction to machine learning concepts using Python and accessible datasets.', category: 'Workshop' },
-      { date: '2025-12-04', title: 'Year Review Showcase', description: 'End of autumn term showcase of Digital Leaders projects and achievements for 2025.', category: 'Showcase' },
-      // ── 35 additional future events ────────────────────────────
-      { date: '2026-03-20', title: 'AI Tools in Education', description: 'Exploring how AI tools can enhance learning and productivity at WIS.', category: 'Talk' },
-      { date: '2026-03-22', title: 'Website Refresh Workshop', description: 'Collaborative session to redesign key pages of the Digital Leaders website.', category: 'Workshop' },
-      { date: '2026-03-26', title: 'Digital Skills Peer Mentoring', description: 'Pairing Digital Leaders with students seeking help on digital projects.', category: 'Support' },
-      { date: '2026-03-29', title: 'Spring Hackathon 2026', description: 'Teams tackle real WIS challenges in a focused two-hour hackathon sprint.', category: 'Hackathon' },
-      { date: '2026-04-02', title: 'Data Literacy Intro', description: 'Understanding data: how to collect, interpret, and visualise information responsibly.', category: 'Workshop' },
-      { date: '2026-04-09', title: 'Student Tech Innovation Showcase', description: 'Highlighting student-led tech projects from across the school.', category: 'Showcase' },
-      { date: '2026-04-14', title: 'Internet Safety Awareness', description: 'Raising awareness about online safety, phishing, and secure passwords.', category: 'Talk' },
-      { date: '2026-04-18', title: 'App Design Challenge', description: 'Design a mobile app prototype in 60 minutes — compete for best concept.', category: 'Initiative' },
-      { date: '2026-04-23', title: 'Digital Skills Fair Stall', description: 'Interactive stall at the WIS Spring Fair highlighting Digital Leaders activities.', category: 'Stall' },
-      { date: '2026-04-28', title: 'Debugging Bootcamp', description: 'Intensive session on debugging strategies for Python and JavaScript projects.', category: 'Workshop' },
-      { date: '2026-05-01', title: 'Leadership Skills Panel', description: 'Senior Digital Leaders share experiences of leadership and teamwork.', category: 'Talk' },
-      { date: '2026-05-07', title: 'School-Wide Tech Survey', description: 'Gathering data on technology use and challenges across WIS to guide initiatives.', category: 'Initiative' },
-      { date: '2026-05-12', title: 'Game Design Introduction', description: 'Building simple games with Scratch and Python — for beginners.', category: 'Workshop' },
-      { date: '2026-05-15', title: 'Device Support Drive', description: 'Drop-in support for students with device issues, software questions, or account problems.', category: 'Support' },
-      { date: '2026-05-20', title: 'WIS Tech Week Stall', description: 'Showcase of Digital Leaders projects and initiatives during WIS Tech Week.', category: 'Stall' },
-      { date: '2026-05-26', title: 'Cybersecurity Competition', description: 'Inter-house cybersecurity challenge testing knowledge of safe online practices.', category: 'Initiative' },
-      { date: '2026-06-02', title: 'Year 7 Tech Induction', description: 'Helping Year 7 students get set up and confident with school digital tools.', category: 'Support' },
-      { date: '2026-06-06', title: 'Podcast Production Workshop', description: 'Recording and editing a Digital Leaders podcast episode on tech trends.', category: 'Workshop' },
-      { date: '2026-06-11', title: 'Design Showcase Exhibition', description: 'Digital Leaders design team presents visual work and brand projects.', category: 'Showcase' },
-      { date: '2026-06-16', title: 'End of Year Hackathon', description: 'Celebratory hackathon to close out the academic year with creative tech challenges.', category: 'Hackathon' },
-      { date: '2026-06-20', title: 'Community Tech Stall', description: 'Engaging the broader WIS community with interactive digital activities at a community event.', category: 'Stall' },
-      { date: '2026-06-25', title: 'Graduation Ceremony Tech Support', description: 'Digital Leaders provide technical support and live streaming for the graduation ceremony.', category: 'Support' },
-      { date: '2026-06-30', title: 'Year-End Showcase 2026', description: 'Celebrating achievements and welcoming the incoming class of Digital Leaders.', category: 'Showcase' },
-      { date: '2026-07-05', title: 'Summer Coding Club', description: 'Optional summer coding sessions for Digital Leaders wanting to build new skills.', category: 'Workshop' },
-      { date: '2026-07-15', title: 'Research Symposium 2026', description: 'Sharing research findings on AI, automation, and digital wellbeing from the academic year.', category: 'Showcase' },
-      { date: '2026-08-10', title: 'New Members Orientation', description: 'Welcoming new Digital Leaders and introducing them to the programme structure.', category: 'Talk' },
-      { date: '2026-08-20', title: 'Back-to-School Tech Fair', description: 'Interactive stall helping students set up devices and get ready for the new academic year.', category: 'Stall' },
-      { date: '2026-09-03', title: 'Kick-Off Assembly 2026', description: 'Introduction to the Digital Leaders programme for new and returning members.', category: 'Talk' },
-      { date: '2026-09-10', title: 'Python Fundamentals Workshop', description: 'Refresher and advanced session on Python for returning members.', category: 'Workshop' },
-      { date: '2026-09-17', title: 'Peer Support Launch', description: 'Opening of the new peer support drop-in schedule for the 2026–27 academic year.', category: 'Support' },
-      { date: '2026-09-24', title: 'Digital Ethics Discussion', description: 'Open forum on digital ethics, data privacy, and responsible AI use.', category: 'Talk' },
-      { date: '2026-10-01', title: 'Autumn Hackathon 2026', description: 'Fast-paced hackathon at the start of the autumn term with cross-team challenges.', category: 'Hackathon' },
-      { date: '2026-10-08', title: 'Tech Leaders Panel', description: 'WIS alumni in tech careers speak to Digital Leaders about pathways and opportunities.', category: 'Talk' },
-      { date: '2026-10-15', title: 'Open Day Stall 2026', description: 'Digital Leaders run an interactive tech stall at the WIS Open Day for prospective families.', category: 'Stall' },
-      { date: '2026-10-22', title: 'Code Review Workshop', description: 'Learning to read, review, and improve code collaboratively as a team.', category: 'Workshop' },
-    ];
+    const CATEGORY_COLOURS = {
+      Workshop:  '#0077ff',
+      Talk:      '#9b59b6',
+      Initiative:'#27ae60',
+      Support:   '#e67e22',
+      Showcase:  '#e74c3c',
+      Hackathon: '#f39c12',
+      Stall:     '#1abc9c',
+    };
+
+    const CATEGORY_ICONS = {
+      Workshop:  '🔧',
+      Talk:      '🎤',
+      Initiative:'💡',
+      Support:   '🤝',
+      Showcase:  '🏆',
+      Hackathon: '⚡',
+      Stall:     '🛍️',
+    };
+
+    const GRID_PAGE_SIZE = 25;
+    let EVENTS = [];
+    let currentIndex = 0;
+    let currentView = 'carousel';
+    let gridCategory = 'all';
+    let gridSort = 'asc';
+    let gridPage = 0;
+    let gridSearch = '';
 
     function formatDate(dateStr) {
       const [y, m, d] = dateStr.split('-').map(Number);
@@ -268,6 +435,26 @@
     function getTodayString() {
       const now = new Date();
       return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    }
+
+    function getEventStatus(ev) {
+      const today = getTodayString();
+      if (ev.cancelled) return 'cancelled';
+      if (ev.date < today) return 'past';
+      if (ev.date > today) return 'upcoming';
+      return 'today';
+    }
+
+    function statusBadgeHTML(status) {
+      const labels = { past: '✅ Past', upcoming: '🔜 Upcoming', cancelled: '❌ Cancelled', today: '📅 Today' };
+      return '<span class="event-status-badge badge--' + status + '">' + (labels[status] || '') + '</span>';
+    }
+
+    function highlight(text, query) {
+      if (!query) return text;
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return text.replace(new RegExp('(' + escaped + ')', 'gi'),
+        '<mark class="search-highlight">$1</mark>');
     }
 
     function createTodayMarker() {
@@ -293,22 +480,19 @@
       return el;
     }
 
-    const CATEGORY_COLOURS = {
-      Workshop: '#0077ff',
-      Talk: '#9b59b6',
-      Initiative: '#27ae60',
-      Support: '#e67e22',
-      Showcase: '#e74c3c',
-      Hackathon: '#f39c12',
-      Stall: '#1abc9c',
-    };
+    function updateStats() {
+      const today = getTodayString();
+      const total = EVENTS.length;
+      const past = EVENTS.filter(e => !e.cancelled && e.date < today).length;
+      const upcoming = EVENTS.filter(e => !e.cancelled && e.date > today).length;
+      const cancelled = EVENTS.filter(e => e.cancelled).length;
 
-    const GRID_PAGE_SIZE = 25;
-    let currentIndex = 0;
-    let currentView = 'carousel';
-    let gridCategory = 'all';
-    let gridSort = 'asc';
-    let gridPage = 0;
+      document.getElementById('stat-total').textContent    = '📋 ' + total + ' events';
+      document.getElementById('stat-past').textContent     = '✅ ' + past + ' past';
+      document.getElementById('stat-upcoming').textContent = '🔜 ' + upcoming + ' upcoming';
+      document.getElementById('stat-cancelled').textContent= '❌ ' + cancelled + ' cancelled';
+      document.getElementById('events-stats').hidden = false;
+    }
 
     function buildCarousel(fromDate) {
       const track = document.getElementById('carousel-track');
@@ -330,7 +514,6 @@
       empty.hidden = true;
       if (currentView === 'carousel') carouselSection.style.display = '';
 
-      // Only insert the today marker when today falls within the displayed date range
       const showTodayMarker = fromDate <= today;
       let todayInserted = false;
 
@@ -341,18 +524,23 @@
         }
 
         const colour = CATEGORY_COLOURS[ev.category] || '#0077ff';
+        const icon = CATEGORY_ICONS[ev.category] || '📌';
+        const status = getEventStatus(ev);
         const card = document.createElement('article');
-        let statusClass = ev.cancelled ? ' cancelled-event' : ev.date < today ? ' past-event' : ev.date > today ? ' upcoming-event' : '';
-        card.className = 'carousel-card' + statusClass;
+        card.className = 'carousel-card' + (ev.cancelled ? ' cancelled-event' : ev.date < today ? ' past-event' : ev.date > today ? ' upcoming-event' : '');
         card.innerHTML =
-          '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
+          '<div class="card-cat-bar" style="background:' + colour + '"></div>' +
+          '<div class="event-header">' +
+            '<span class="event-cat-icon" title="' + ev.category + '">' + icon + '</span>' +
+            '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
+            statusBadgeHTML(status) +
+          '</div>' +
           '<time class="event-date">' + formatDate(ev.date) + '</time>' +
           '<h2>' + ev.title + '</h2>' +
           '<p>' + ev.description + '</p>';
         track.appendChild(card);
       });
 
-      // All events in range are in the past — append marker at the end
       if (showTodayMarker && !todayInserted) {
         track.appendChild(createTodayMarker());
       }
@@ -373,12 +561,18 @@
     function buildCategoryFilters() {
       const container = document.getElementById('category-filters');
       container.innerHTML = '';
+      const today = getTodayString();
+
       const categories = ['all', ...Object.keys(CATEGORY_COLOURS)];
       categories.forEach(cat => {
+        const count = cat === 'all'
+          ? EVENTS.length
+          : EVENTS.filter(e => e.category === cat).length;
         const btn = document.createElement('button');
         btn.className = 'filter-btn' + (cat === gridCategory ? ' active' : '');
-        btn.textContent = cat === 'all' ? 'All' : cat;
         btn.dataset.category = cat;
+        const label = cat === 'all' ? 'All' : (CATEGORY_ICONS[cat] || '') + ' ' + cat;
+        btn.innerHTML = label + ' <small style="opacity:0.7;font-weight:400">(' + count + ')</small>';
         if (cat !== 'all') {
           btn.style.setProperty('--filter-colour', CATEGORY_COLOURS[cat]);
         }
@@ -402,10 +596,19 @@
       const nextBtn = document.getElementById('grid-next-page');
       const pageInfo = document.getElementById('pagination-info');
       const today = getTodayString();
+      const query = gridSearch.trim().toLowerCase();
 
       let filtered = gridCategory === 'all'
         ? [...EVENTS]
         : EVENTS.filter(e => e.category === gridCategory);
+
+      if (query) {
+        filtered = filtered.filter(e =>
+          e.title.toLowerCase().includes(query) ||
+          e.description.toLowerCase().includes(query) ||
+          e.category.toLowerCase().includes(query)
+        );
+      }
 
       filtered.sort((a, b) => gridSort === 'asc'
         ? a.date.localeCompare(b.date)
@@ -414,7 +617,9 @@
       grid.innerHTML = '';
 
       if (!filtered.length) {
-        empty.textContent = 'No events found for this category.';
+        empty.textContent = query
+          ? 'No events found matching "' + gridSearch + '".'
+          : 'No events found for this category.';
         empty.hidden = false;
         countEl.textContent = '';
         pagination.style.display = 'none';
@@ -446,18 +651,23 @@
         }
 
         const colour = CATEGORY_COLOURS[ev.category] || '#0077ff';
+        const icon = CATEGORY_ICONS[ev.category] || '📌';
+        const status = getEventStatus(ev);
         const card = document.createElement('article');
-        let statusClass = ev.cancelled ? ' cancelled-event' : ev.date < today ? ' past-event' : ev.date > today ? ' upcoming-event' : '';
-        card.className = 'card' + statusClass;
+        card.className = 'card' + (ev.cancelled ? ' cancelled-event' : ev.date < today ? ' past-event' : ev.date > today ? ' upcoming-event' : '');
         card.innerHTML =
-          '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
+          '<div class="card-cat-bar" style="background:' + colour + '"></div>' +
+          '<div class="event-header">' +
+            '<span class="event-cat-icon" title="' + ev.category + '">' + icon + '</span>' +
+            '<span class="event-tag" style="background:' + colour + '">' + ev.category + '</span>' +
+            statusBadgeHTML(status) +
+          '</div>' +
           '<time class="event-date">' + formatDate(ev.date) + '</time>' +
-          '<h2 class="event-grid-title">' + ev.title + '</h2>' +
-          '<p class="event-grid-description">' + ev.description + '</p>';
+          '<h2 class="event-grid-title">' + highlight(ev.title, query) + '</h2>' +
+          '<p class="event-grid-description">' + highlight(ev.description, query) + '</p>';
         grid.appendChild(card);
       });
 
-      // Show pagination only when there are multiple pages
       if (totalPages > 1) {
         pagination.style.display = '';
         prevBtn.disabled = gridPage === 0;
@@ -468,13 +678,56 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    async function loadEvents() {
+      const loader = document.getElementById('events-loader');
+      const carouselSection = document.getElementById('carousel-section');
+      try {
+        const res = await fetch('data/events.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        EVENTS = await res.json();
+      } catch (err) {
+        loader.innerHTML = '<p style="color:#c0392b">⚠️ Could not load events data. Please try refreshing the page.</p>';
+        return;
+      }
+
+      loader.style.display = 'none';
+      carouselSection.style.display = '';
+
+      updateStats();
+      buildCategoryFilters();
+
       const picker = document.getElementById('event-date-picker');
-      const now = new Date();
-      const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+      const today = getTodayString();
       picker.value = today;
       buildCarousel(today);
-      buildCategoryFilters();
+      updateCarousel();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEvents();
+
+      const picker = document.getElementById('event-date-picker');
+
+      document.getElementById('btn-jump-today').addEventListener('click', () => {
+        const today = getTodayString();
+        picker.value = today;
+        buildCarousel(today);
+        // Scroll carousel to first upcoming/today card
+        const cards = document.querySelectorAll('.carousel-card');
+        const today2 = getTodayString();
+        let idx = 0;
+        EVENTS.filter(e => e.date >= today2).sort((a,b) => a.date.localeCompare(b.date)).forEach((ev, i) => {
+          if (i === 0) {
+            const allCards = document.querySelectorAll('#carousel-track .carousel-card, #carousel-track .today-marker');
+            // today marker is inserted before first event >= today
+            for (let j = 0; j < allCards.length; j++) {
+              if (allCards[j].classList.contains('today-marker')) { idx = j; break; }
+            }
+          }
+        });
+        currentIndex = Math.max(0, idx);
+        updateCarousel();
+      });
 
       picker.addEventListener('change', () => {
         buildCarousel(picker.value);
@@ -486,12 +739,39 @@
         buildGrid();
       });
 
+      const searchInput = document.getElementById('grid-search-input');
+      const searchClear = document.getElementById('grid-search-clear');
+      searchInput.addEventListener('input', () => {
+        gridSearch = searchInput.value;
+        gridPage = 0;
+        searchClear.hidden = !gridSearch;
+        buildGrid();
+      });
+      searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        gridSearch = '';
+        searchClear.hidden = true;
+        gridPage = 0;
+        buildGrid();
+      });
+
       document.getElementById('carousel-prev').addEventListener('click', () => {
         if (currentIndex > 0) { currentIndex--; updateCarousel(); }
       });
       document.getElementById('carousel-next').addEventListener('click', () => {
-        const cards = document.querySelectorAll('.carousel-card, .today-marker');
+        const cards = document.querySelectorAll('#carousel-track .carousel-card, #carousel-track .today-marker');
         if (currentIndex < cards.length - 1) { currentIndex++; updateCarousel(); }
+      });
+
+      // Keyboard navigation for carousel
+      document.addEventListener('keydown', (e) => {
+        if (currentView !== 'carousel') return;
+        if (e.key === 'ArrowLeft') {
+          if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+        } else if (e.key === 'ArrowRight') {
+          const cards = document.querySelectorAll('#carousel-track .carousel-card, #carousel-track .today-marker');
+          if (currentIndex < cards.length - 1) { currentIndex++; updateCarousel(); }
+        }
       });
 
       document.getElementById('grid-prev-page').addEventListener('click', () => {
