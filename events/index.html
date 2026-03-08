@@ -716,6 +716,10 @@ A short description of the event.</pre>
           )
         );
         EVENTS = texts.map(parseTxt).filter(Boolean);
+        const cutoff = new Date();
+        cutoff.setFullYear(cutoff.getFullYear() - 1);
+        const cutoffStr = cutoff.toISOString().split('T')[0];
+        EVENTS = EVENTS.filter(e => e.date >= cutoffStr);
       } catch (err) {
         loader.innerHTML = '<p style="color:#c0392b">⚠️ Could not load one or more event files. Please try refreshing the page.</p>';
         return;
