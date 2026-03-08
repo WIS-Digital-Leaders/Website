@@ -902,9 +902,67 @@ body.dark-theme .org-node.branch {
   left: -24px;
   right: -24px;
 }
+.org-tree > ul > li > ul > li:only-child::after {
+  display: none;
+}
+.org-tree > ul > li > ul > li > ul > li:only-child::after {
+  display: none;
+}
 body.dark-theme .org-tree > ul > li > ul > li::before,
 body.dark-theme .org-tree > ul > li > ul > li::after,
 body.dark-theme .org-tree > ul > li > ul::before {
+  background: #444;
+}
+/* Level 3 (children of a level-2 node, e.g. Design/Research/Code under Management) */
+.org-tree > ul > li > ul > li > ul {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  padding-top: 96px;
+  position: relative;
+}
+.org-tree > ul > li > ul > li > ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 48px;
+  background: #ccc;
+}
+.org-tree > ul > li > ul > li > ul > li::before {
+  content: '';
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 48px;
+  background: #ccc;
+}
+.org-tree > ul > li > ul > li > ul > li::after {
+  content: '';
+  position: absolute;
+  top: -48px;
+  height: 2px;
+  background: #ccc;
+}
+.org-tree > ul > li > ul > li > ul > li:first-child::after {
+  left: 50%;
+  right: -24px;
+}
+.org-tree > ul > li > ul > li > ul > li:last-child::after {
+  right: 50%;
+  left: -24px;
+}
+.org-tree > ul > li > ul > li > ul > li:not(:first-child):not(:last-child)::after {
+  left: -24px;
+  right: -24px;
+}
+body.dark-theme .org-tree > ul > li > ul > li > ul > li::before,
+body.dark-theme .org-tree > ul > li > ul > li > ul > li::after,
+body.dark-theme .org-tree > ul > li > ul > li > ul::before {
   background: #444;
 }
 
