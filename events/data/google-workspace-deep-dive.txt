@@ -1,1 +1,6 @@
+date: 2024-02-08
+title: Google Workspace Deep-Dive
+category: Workshop
+cancelled: false
+---
 Maximising productivity with Google Docs, Drive, Slides, and Forms for school work.

@@ -1,1 +1,6 @@
+date: 2026-05-12
+title: Game Design Introduction
+category: Workshop
+cancelled: false
+---
 Building simple games with Scratch and Python — for beginners.

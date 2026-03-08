@@ -1,1 +1,6 @@
+date: 2025-06-05
+title: End-of-Year Celebration
+category: Showcase
+cancelled: false
+---
 Celebrating achievements and welcoming incoming Digital Leaders.

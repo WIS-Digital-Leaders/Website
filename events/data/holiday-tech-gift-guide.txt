@@ -1,1 +1,6 @@
+date: 2024-12-12
+title: Holiday Tech Gift Guide
+category: Talk
+cancelled: false
+---
 Digital Leaders recommend the best tech resources and tools for the holiday season.

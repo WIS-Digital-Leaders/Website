@@ -1,1 +1,6 @@
+date: 2026-10-22
+title: Code Review Workshop
+category: Workshop
+cancelled: false
+---
 Learning to read, review, and improve code collaboratively as a team.

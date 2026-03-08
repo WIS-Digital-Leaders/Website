@@ -1,1 +1,6 @@
+date: 2024-03-21
+title: First WIS Hackathon
+category: Hackathon
+cancelled: false
+---
 Inaugural hackathon: students designed apps for school community challenges.

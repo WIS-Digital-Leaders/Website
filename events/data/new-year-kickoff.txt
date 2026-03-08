@@ -1,1 +1,6 @@
+date: 2024-01-18
+title: New Year Kickoff
+category: Initiative
+cancelled: false
+---
 Planning session for second-term Digital Leaders activities and goals.

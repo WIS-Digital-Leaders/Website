@@ -1,1 +1,6 @@
+date: 2026-06-25
+title: Graduation Ceremony Tech Support
+category: Support
+cancelled: false
+---
 Digital Leaders provide technical support and live streaming for the graduation ceremony.

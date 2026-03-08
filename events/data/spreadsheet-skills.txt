@@ -1,1 +1,6 @@
+date: 2023-10-19
+title: Spreadsheet Skills
+category: Workshop
+cancelled: false
+---
 Advanced Google Sheets techniques for data analysis and school projects.

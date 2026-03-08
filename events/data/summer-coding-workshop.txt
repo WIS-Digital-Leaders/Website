@@ -1,1 +1,6 @@
+date: 2025-07-10
+title: Summer Coding Workshop
+category: Workshop
+cancelled: false
+---
 Continuation of projects and skills during the summer break for keen coders.

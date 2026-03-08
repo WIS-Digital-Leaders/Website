@@ -1,1 +1,6 @@
+date: 2025-11-06
+title: Machine Learning Basics
+category: Workshop
+cancelled: false
+---
 Introduction to machine learning concepts using Python and accessible datasets.

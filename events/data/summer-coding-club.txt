@@ -1,1 +1,6 @@
+date: 2026-07-05
+title: Summer Coding Club
+category: Workshop
+cancelled: false
+---
 Optional summer coding sessions for Digital Leaders wanting to build new skills.

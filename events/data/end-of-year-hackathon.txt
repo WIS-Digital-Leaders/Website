@@ -1,1 +1,6 @@
+date: 2026-06-16
+title: End of Year Hackathon
+category: Hackathon
+cancelled: false
+---
 Celebratory hackathon to close out the academic year with creative tech challenges.

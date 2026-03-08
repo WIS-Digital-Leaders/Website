@@ -1,1 +1,6 @@
+date: 2024-10-31
+title: Halloween Tech Quiz
+category: Initiative
+cancelled: false
+---
 Spooky tech trivia quiz — Digital Leaders vs the rest of the school!

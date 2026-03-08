@@ -1,1 +1,6 @@
+date: 2024-11-07
+title: Email Etiquette Talk
+category: Talk
+cancelled: false
+---
 Best practices for professional email communication in school and work settings.

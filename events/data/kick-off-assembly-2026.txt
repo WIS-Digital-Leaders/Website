@@ -1,1 +1,6 @@
+date: 2026-09-03
+title: Kick-Off Assembly 2026
+category: Talk
+cancelled: false
+---
 Introduction to the Digital Leaders programme for new and returning members.

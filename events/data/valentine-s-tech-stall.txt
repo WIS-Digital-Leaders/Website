@@ -1,1 +1,6 @@
+date: 2025-02-13
+title: Valentine's Tech Stall
+category: Stall
+cancelled: false
+---
 Interactive stall for Valentine's Day, promoting digital creativity and fun apps.

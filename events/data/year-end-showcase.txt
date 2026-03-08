@@ -1,1 +1,6 @@
+date: 2024-12-06
+title: Year-End Showcase
+category: Showcase
+cancelled: false
+---
 Digital Leaders present projects and achievements from the first term.

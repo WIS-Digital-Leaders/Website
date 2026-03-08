@@ -1,1 +1,6 @@
+date: 2025-10-09
+title: Cybersecurity Awareness Month
+category: Initiative
+cancelled: false
+---
 Special events and challenges throughout October celebrating Cybersecurity Awareness Month.

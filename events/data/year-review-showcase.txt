@@ -1,1 +1,6 @@
+date: 2025-12-04
+title: Year Review Showcase
+category: Showcase
+cancelled: false
+---
 End of autumn term showcase of Digital Leaders projects and achievements for 2025.

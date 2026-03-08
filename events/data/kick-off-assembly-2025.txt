@@ -1,1 +1,6 @@
+date: 2025-09-04
+title: Kick-Off Assembly 2025
+category: Talk
+cancelled: false
+---
 Introduction to the 2025–26 Digital Leaders cohort and their plans for the year.

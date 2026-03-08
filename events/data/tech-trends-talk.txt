@@ -1,1 +1,6 @@
+date: 2026-03-08
+title: Tech Trends Talk
+category: Talk
+cancelled: false
+---
 An overview of emerging technologies and their impact on schools and communities.

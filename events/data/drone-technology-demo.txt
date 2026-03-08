@@ -1,1 +1,6 @@
+date: 2025-04-03
+title: Drone Technology Demo
+category: Workshop
+cancelled: false
+---
 Live demonstration of drone capabilities and programming basics.

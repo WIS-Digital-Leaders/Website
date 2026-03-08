@@ -1,1 +1,6 @@
+date: 2026-05-26
+title: Cybersecurity Competition
+category: Initiative
+cancelled: false
+---
 Inter-house cybersecurity challenge testing knowledge of safe online practices.

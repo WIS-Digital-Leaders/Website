@@ -1,1 +1,6 @@
+date: 2024-09-05
+title: Kick-Off Assembly
+category: Talk
+cancelled: false
+---
 Introduction to Digital Leaders for new members and interested students.

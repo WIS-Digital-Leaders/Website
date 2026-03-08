@@ -1,1 +1,6 @@
+date: 2026-06-06
+title: Podcast Production Workshop
+category: Workshop
+cancelled: false
+---
 Recording and editing a Digital Leaders podcast episode on tech trends.

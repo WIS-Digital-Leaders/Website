@@ -1,810 +1,103 @@
 [
-  {
-    "date": "2023-09-07",
-    "title": "Inaugural Assembly",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "inaugural-assembly.txt",
-    "description": "First-ever Digital Leaders assembly, introducing the programme to the WIS community."
-  },
-  {
-    "date": "2023-09-21",
-    "title": "Digital Literacy Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "digital-literacy-workshop.txt",
-    "description": "Foundational session covering essential digital skills for the modern classroom."
-  },
-  {
-    "date": "2023-10-05",
-    "title": "Hardware Basics Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "hardware-basics-talk.txt",
-    "description": "Understanding the components of computers and devices used at school."
-  },
-  {
-    "date": "2023-10-19",
-    "title": "Spreadsheet Skills",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "spreadsheet-skills.txt",
-    "description": "Advanced Google Sheets techniques for data analysis and school projects."
-  },
-  {
-    "date": "2023-11-02",
-    "title": "WIS Open Day Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "wis-open-day-stall.txt",
-    "description": "First Digital Leaders stall at WIS Open Day showcasing student-led initiatives."
-  },
-  {
-    "date": "2023-11-16",
-    "title": "Scratch Coding Intro",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "scratch-coding-intro.txt",
-    "description": "Block-based programming for Year 7 students — building games and animations."
-  },
-  {
-    "date": "2023-12-07",
-    "title": "Year-End Reflection Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "year-end-reflection-talk.txt",
-    "description": "Digital Leaders reflect on the founding year and share learnings with the school."
-  },
-  {
-    "date": "2024-01-18",
-    "title": "New Year Kickoff",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "new-year-kickoff.txt",
-    "description": "Planning session for second-term Digital Leaders activities and goals."
-  },
-  {
-    "date": "2024-02-08",
-    "title": "Google Workspace Deep-Dive",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "google-workspace-deep-dive.txt",
-    "description": "Maximising productivity with Google Docs, Drive, Slides, and Forms for school work."
-  },
-  {
-    "date": "2024-02-22",
-    "title": "First Hackathon Planning",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "first-hackathon-planning.txt",
-    "description": "Organising and planning the first-ever WIS hackathon event for spring term."
-  },
-  {
-    "date": "2024-03-07",
-    "title": "Canva Design Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "canva-design-workshop.txt",
-    "description": "Hands-on session creating professional-looking digital content with Canva."
-  },
-  {
-    "date": "2024-03-21",
-    "title": "First WIS Hackathon",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "first-wis-hackathon.txt",
-    "description": "Inaugural hackathon: students designed apps for school community challenges."
-  },
-  {
-    "date": "2024-04-04",
-    "title": "Science Fair Tech Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "science-fair-tech-stall.txt",
-    "description": "Demonstrating digital tools and coding projects alongside the WIS Science Fair."
-  },
-  {
-    "date": "2024-04-18",
-    "title": "Digital Photography Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "digital-photography-workshop.txt",
-    "description": "Using smartphones and free tools to create compelling digital photography."
-  },
-  {
-    "date": "2024-05-02",
-    "title": "Tech in Everyday Life",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "tech-in-everyday-life.txt",
-    "description": "Student-led talk on how digital tools impact daily life and study habits."
-  },
-  {
-    "date": "2024-05-16",
-    "title": "Accessibility Awareness",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "accessibility-awareness.txt",
-    "description": "Exploring how digital design can be more accessible and inclusive for all users."
-  },
-  {
-    "date": "2024-06-06",
-    "title": "End-of-Year Showcase 2024",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "end-of-year-showcase-2024.txt",
-    "description": "Digital Leaders present highlights from the first full academic year."
-  },
-  {
-    "date": "2024-06-20",
-    "title": "Peer Mentoring Launch",
-    "category": "Support",
-    "cancelled": false,
-    "file": "peer-mentoring-launch.txt",
-    "description": "Launch of structured peer mentoring pairs for digital skills support."
-  },
-  {
-    "date": "2024-07-04",
-    "title": "Summer Project Briefing",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "summer-project-briefing.txt",
-    "description": "Briefing for Digital Leaders taking on summer tech projects for the school."
-  },
-  {
-    "date": "2024-08-22",
-    "title": "Pre-Term Setup Session",
-    "category": "Support",
-    "cancelled": false,
-    "file": "pre-term-setup-session.txt",
-    "description": "Supporting teachers and students in setting up devices and apps for the new year."
-  },
-  {
-    "date": "2024-09-05",
-    "title": "Kick-Off Assembly",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "kick-off-assembly.txt",
-    "description": "Introduction to Digital Leaders for new members and interested students."
-  },
-  {
-    "date": "2024-09-12",
-    "title": "Typing Speed Challenge",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "typing-speed-challenge.txt",
-    "description": "Fun team competition to test and improve typing speed and accuracy."
-  },
-  {
-    "date": "2024-09-20",
-    "title": "Automation Basics",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "automation-basics.txt",
-    "description": "Intro workshop on scripts and workflow optimisation using Google Apps Script."
-  },
-  {
-    "date": "2024-09-26",
-    "title": "Network Security Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "network-security-talk.txt",
-    "description": "Understanding how school networks work and how to stay safe on shared connections."
-  },
-  {
-    "date": "2024-10-03",
-    "title": "Python Beginners Sprint",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "python-beginners-sprint.txt",
-    "description": "Crash course in Python for students with no prior coding experience."
-  },
-  {
-    "date": "2024-10-08",
-    "title": "Digital Safety Day",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "digital-safety-day.txt",
-    "description": "Session on cybersecurity, privacy, and responsible tech use for Year 9."
-  },
-  {
-    "date": "2024-10-15",
-    "title": "Open Day Tech Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "open-day-tech-stall.txt",
-    "description": "Digital Leaders ran an interactive tech stall at the WIS Open Day, showcasing student projects to prospective families."
-  },
-  {
-    "date": "2024-10-25",
-    "title": "Coding Crash Course",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "coding-crash-course.txt",
-    "description": "Hands-on coding for beginners — building confidence with Python fundamentals."
-  },
-  {
-    "date": "2024-10-31",
-    "title": "Halloween Tech Quiz",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "halloween-tech-quiz.txt",
-    "description": "Spooky tech trivia quiz — Digital Leaders vs the rest of the school!"
-  },
-  {
-    "date": "2024-11-07",
-    "title": "Email Etiquette Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "email-etiquette-talk.txt",
-    "description": "Best practices for professional email communication in school and work settings."
-  },
-  {
-    "date": "2024-11-12",
-    "title": "UI/UX Design Sprint",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "ui-ux-design-sprint.txt",
-    "description": "Students designed and prototyped interfaces for a school app concept."
-  },
-  {
-    "date": "2024-11-20",
-    "title": "STEM Fair Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "stem-fair-stall.txt",
-    "description": "Represented Digital Leaders at the school STEM Fair with demos on coding, robotics, and app development."
-  },
-  {
-    "date": "2024-11-28",
-    "title": "AI & Ethics Panel",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "ai-and-ethics-panel.txt",
-    "description": "Open discussion on artificial intelligence, bias, and responsible development."
-  },
-  {
-    "date": "2024-12-06",
-    "title": "Year-End Showcase",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "year-end-showcase.txt",
-    "description": "Digital Leaders present projects and achievements from the first term."
-  },
-  {
-    "date": "2024-12-12",
-    "title": "Holiday Tech Gift Guide",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "holiday-tech-gift-guide.txt",
-    "description": "Digital Leaders recommend the best tech resources and tools for the holiday season."
-  },
-  {
-    "date": "2025-01-09",
-    "title": "New Term Planning",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "new-term-planning.txt",
-    "description": "Kickoff planning session for spring term Digital Leaders activities."
-  },
-  {
-    "date": "2025-01-14",
-    "title": "Python Workshop II",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "python-workshop-ii.txt",
-    "description": "Intermediate Python: file handling, APIs, and data visualisation."
-  },
-  {
-    "date": "2025-01-30",
-    "title": "Peer Support Drive",
-    "category": "Support",
-    "cancelled": false,
-    "file": "peer-support-drive.txt",
-    "description": "Open drop-in sessions for students needing help with devices and apps."
-  },
-  {
-    "date": "2025-02-06",
-    "title": "Cloud Computing Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "cloud-computing-workshop.txt",
-    "description": "Understanding cloud services, storage, and collaboration tools in everyday use."
-  },
-  {
-    "date": "2025-02-11",
-    "title": "Web Development Intro",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "web-development-intro.txt",
-    "description": "Building responsive websites with HTML, CSS, and JavaScript from scratch."
-  },
-  {
-    "date": "2025-02-13",
-    "title": "Valentine's Tech Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "valentine-s-tech-stall.txt",
-    "description": "Interactive stall for Valentine's Day, promoting digital creativity and fun apps."
-  },
-  {
-    "date": "2025-02-20",
-    "title": "Inter-School Hackathon",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "inter-school-hackathon.txt",
-    "description": "Digital Leaders competed against other schools in a collaborative problem-solving hackathon focused on sustainability."
-  },
-  {
-    "date": "2025-02-27",
-    "title": "Research Symposium",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "research-symposium.txt",
-    "description": "Digital Leaders share findings on automation tools and digital literacy."
-  },
-  {
-    "date": "2025-03-03",
-    "title": "Data Privacy Day Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "data-privacy-day-talk.txt",
-    "description": "Raising awareness of personal data, privacy settings, and digital footprints."
-  },
-  {
-    "date": "2025-03-07",
-    "title": "Community Expo Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "community-expo-stall.txt",
-    "description": "Staffed a stall at the local community technology expo, engaging the public with hands-on digital activities."
-  },
-  {
-    "date": "2025-03-14",
-    "title": "Robotics Demo",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "robotics-demo.txt",
-    "description": "Hands-on demonstration of robotics kits and programming concepts."
-  },
-  {
-    "date": "2025-03-28",
-    "title": "Hackathon Prep",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "hackathon-prep.txt",
-    "description": "Team-building and ideation session ahead of the school hackathon."
-  },
-  {
-    "date": "2025-04-03",
-    "title": "Drone Technology Demo",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "drone-technology-demo.txt",
-    "description": "Live demonstration of drone capabilities and programming basics."
-  },
-  {
-    "date": "2025-04-10",
-    "title": "School Hackathon",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "school-hackathon.txt",
-    "description": "24-hour challenge: teams build solutions to real WIS tech challenges."
-  },
-  {
-    "date": "2025-04-17",
-    "title": "Digital Art Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "digital-art-workshop.txt",
-    "description": "Creating digital illustrations and graphics using free online tools."
-  },
-  {
-    "date": "2025-05-01",
-    "title": "STEM Careers Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "stem-careers-talk.txt",
-    "description": "Professionals in tech share insights on careers in STEM fields."
-  },
-  {
-    "date": "2025-05-06",
-    "title": "App Store Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "app-store-workshop.txt",
-    "description": "How to package, publish, and present an app to a real audience."
-  },
-  {
-    "date": "2025-05-22",
-    "title": "Digital Wellbeing Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "digital-wellbeing-talk.txt",
-    "description": "Balancing screen time, mental health, and healthy digital habits."
-  },
-  {
-    "date": "2025-06-05",
-    "title": "End-of-Year Celebration",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "end-of-year-celebration.txt",
-    "description": "Celebrating achievements and welcoming incoming Digital Leaders."
-  },
-  {
-    "date": "2025-06-12",
-    "title": "Digital Leaders Annual Report",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "digital-leaders-annual-report.txt",
-    "description": "Presenting the Digital Leaders annual impact report to the school community."
-  },
-  {
-    "date": "2025-07-10",
-    "title": "Summer Coding Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "summer-coding-workshop.txt",
-    "description": "Continuation of projects and skills during the summer break for keen coders."
-  },
-  {
-    "date": "2025-08-14",
-    "title": "New Year Device Setup",
-    "category": "Support",
-    "cancelled": false,
-    "file": "new-year-device-setup.txt",
-    "description": "Helping new Year 7 students set up school accounts and devices before term starts."
-  },
-  {
-    "date": "2025-09-04",
-    "title": "Kick-Off Assembly 2025",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "kick-off-assembly-2025.txt",
-    "description": "Introduction to the 2025–26 Digital Leaders cohort and their plans for the year."
-  },
-  {
-    "date": "2025-10-09",
-    "title": "Cybersecurity Awareness Month",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "cybersecurity-awareness-month.txt",
-    "description": "Special events and challenges throughout October celebrating Cybersecurity Awareness Month."
-  },
-  {
-    "date": "2025-11-06",
-    "title": "Machine Learning Basics",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "machine-learning-basics.txt",
-    "description": "Introduction to machine learning concepts using Python and accessible datasets."
-  },
-  {
-    "date": "2025-12-04",
-    "title": "Year Review Showcase",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "year-review-showcase.txt",
-    "description": "End of autumn term showcase of Digital Leaders projects and achievements for 2025."
-  },
-  {
-    "date": "2026-03-05",
-    "title": "Spring Kick-Off Workshop",
-    "category": "Workshop",
-    "cancelled": true,
-    "file": "spring-kick-off-workshop.txt",
-    "description": "Hands-on session introducing new tools and projects for the spring term."
-  },
-  {
-    "date": "2026-03-08",
-    "title": "Tech Trends Talk",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "tech-trends-talk.txt",
-    "description": "An overview of emerging technologies and their impact on schools and communities."
-  },
-  {
-    "date": "2026-03-12",
-    "title": "Digital Inclusion Initiative",
-    "category": "Initiative",
-    "cancelled": true,
-    "file": "digital-inclusion-initiative.txt",
-    "description": "Planning session for a school-wide drive to improve access to digital resources for all students."
-  },
-  {
-    "date": "2026-03-15",
-    "title": "Device Drop-In Support",
-    "category": "Support",
-    "cancelled": false,
-    "file": "device-drop-in-support.txt",
-    "description": "Open drop-in for students and staff needing help with devices, apps, or accounts."
-  },
-  {
-    "date": "2026-03-19",
-    "title": "Spring Project Showcase",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "spring-project-showcase.txt",
-    "description": "Digital Leaders present their spring term projects to students, staff, and guests."
-  },
-  {
-    "date": "2026-03-20",
-    "title": "AI Tools in Education",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "ai-tools-in-education.txt",
-    "description": "Exploring how AI tools can enhance learning and productivity at WIS."
-  },
-  {
-    "date": "2026-03-22",
-    "title": "Website Refresh Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "website-refresh-workshop.txt",
-    "description": "Collaborative session to redesign key pages of the Digital Leaders website."
-  },
-  {
-    "date": "2026-03-26",
-    "title": "Digital Skills Peer Mentoring",
-    "category": "Support",
-    "cancelled": false,
-    "file": "digital-skills-peer-mentoring.txt",
-    "description": "Pairing Digital Leaders with students seeking help on digital projects."
-  },
-  {
-    "date": "2026-03-29",
-    "title": "Spring Hackathon 2026",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "spring-hackathon-2026.txt",
-    "description": "Teams tackle real WIS challenges in a focused two-hour hackathon sprint."
-  },
-  {
-    "date": "2026-04-02",
-    "title": "Data Literacy Intro",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "data-literacy-intro.txt",
-    "description": "Understanding data: how to collect, interpret, and visualise information responsibly."
-  },
-  {
-    "date": "2026-04-09",
-    "title": "Student Tech Innovation Showcase",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "student-tech-innovation-showcase.txt",
-    "description": "Highlighting student-led tech projects from across the school."
-  },
-  {
-    "date": "2026-04-14",
-    "title": "Internet Safety Awareness",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "internet-safety-awareness.txt",
-    "description": "Raising awareness about online safety, phishing, and secure passwords."
-  },
-  {
-    "date": "2026-04-18",
-    "title": "App Design Challenge",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "app-design-challenge.txt",
-    "description": "Design a mobile app prototype in 60 minutes — compete for best concept."
-  },
-  {
-    "date": "2026-04-23",
-    "title": "Digital Skills Fair Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "digital-skills-fair-stall.txt",
-    "description": "Interactive stall at the WIS Spring Fair highlighting Digital Leaders activities."
-  },
-  {
-    "date": "2026-04-28",
-    "title": "Debugging Bootcamp",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "debugging-bootcamp.txt",
-    "description": "Intensive session on debugging strategies for Python and JavaScript projects."
-  },
-  {
-    "date": "2026-05-01",
-    "title": "Leadership Skills Panel",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "leadership-skills-panel.txt",
-    "description": "Senior Digital Leaders share experiences of leadership and teamwork."
-  },
-  {
-    "date": "2026-05-07",
-    "title": "School-Wide Tech Survey",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "school-wide-tech-survey.txt",
-    "description": "Gathering data on technology use and challenges across WIS to guide initiatives."
-  },
-  {
-    "date": "2026-05-12",
-    "title": "Game Design Introduction",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "game-design-introduction.txt",
-    "description": "Building simple games with Scratch and Python — for beginners."
-  },
-  {
-    "date": "2026-05-15",
-    "title": "Device Support Drive",
-    "category": "Support",
-    "cancelled": false,
-    "file": "device-support-drive.txt",
-    "description": "Drop-in support for students with device issues, software questions, or account problems."
-  },
-  {
-    "date": "2026-05-20",
-    "title": "WIS Tech Week Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "wis-tech-week-stall.txt",
-    "description": "Showcase of Digital Leaders projects and initiatives during WIS Tech Week."
-  },
-  {
-    "date": "2026-05-26",
-    "title": "Cybersecurity Competition",
-    "category": "Initiative",
-    "cancelled": false,
-    "file": "cybersecurity-competition.txt",
-    "description": "Inter-house cybersecurity challenge testing knowledge of safe online practices."
-  },
-  {
-    "date": "2026-06-02",
-    "title": "Year 7 Tech Induction",
-    "category": "Support",
-    "cancelled": false,
-    "file": "year-7-tech-induction.txt",
-    "description": "Helping Year 7 students get set up and confident with school digital tools."
-  },
-  {
-    "date": "2026-06-06",
-    "title": "Podcast Production Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "podcast-production-workshop.txt",
-    "description": "Recording and editing a Digital Leaders podcast episode on tech trends."
-  },
-  {
-    "date": "2026-06-11",
-    "title": "Design Showcase Exhibition",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "design-showcase-exhibition.txt",
-    "description": "Digital Leaders design team presents visual work and brand projects."
-  },
-  {
-    "date": "2026-06-16",
-    "title": "End of Year Hackathon",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "end-of-year-hackathon.txt",
-    "description": "Celebratory hackathon to close out the academic year with creative tech challenges."
-  },
-  {
-    "date": "2026-06-20",
-    "title": "Community Tech Stall",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "community-tech-stall.txt",
-    "description": "Engaging the broader WIS community with interactive digital activities at a community event."
-  },
-  {
-    "date": "2026-06-25",
-    "title": "Graduation Ceremony Tech Support",
-    "category": "Support",
-    "cancelled": false,
-    "file": "graduation-ceremony-tech-support.txt",
-    "description": "Digital Leaders provide technical support and live streaming for the graduation ceremony."
-  },
-  {
-    "date": "2026-06-30",
-    "title": "Year-End Showcase 2026",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "year-end-showcase-2026.txt",
-    "description": "Celebrating achievements and welcoming the incoming class of Digital Leaders."
-  },
-  {
-    "date": "2026-07-05",
-    "title": "Summer Coding Club",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "summer-coding-club.txt",
-    "description": "Optional summer coding sessions for Digital Leaders wanting to build new skills."
-  },
-  {
-    "date": "2026-07-15",
-    "title": "Research Symposium 2026",
-    "category": "Showcase",
-    "cancelled": false,
-    "file": "research-symposium-2026.txt",
-    "description": "Sharing research findings on AI, automation, and digital wellbeing from the academic year."
-  },
-  {
-    "date": "2026-08-10",
-    "title": "New Members Orientation",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "new-members-orientation.txt",
-    "description": "Welcoming new Digital Leaders and introducing them to the programme structure."
-  },
-  {
-    "date": "2026-08-20",
-    "title": "Back-to-School Tech Fair",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "back-to-school-tech-fair.txt",
-    "description": "Interactive stall helping students set up devices and get ready for the new academic year."
-  },
-  {
-    "date": "2026-09-03",
-    "title": "Kick-Off Assembly 2026",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "kick-off-assembly-2026.txt",
-    "description": "Introduction to the Digital Leaders programme for new and returning members."
-  },
-  {
-    "date": "2026-09-10",
-    "title": "Python Fundamentals Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "python-fundamentals-workshop.txt",
-    "description": "Refresher and advanced session on Python for returning members."
-  },
-  {
-    "date": "2026-09-17",
-    "title": "Peer Support Launch",
-    "category": "Support",
-    "cancelled": false,
-    "file": "peer-support-launch.txt",
-    "description": "Opening of the new peer support drop-in schedule for the 2026–27 academic year."
-  },
-  {
-    "date": "2026-09-24",
-    "title": "Digital Ethics Discussion",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "digital-ethics-discussion.txt",
-    "description": "Open forum on digital ethics, data privacy, and responsible AI use."
-  },
-  {
-    "date": "2026-10-01",
-    "title": "Autumn Hackathon 2026",
-    "category": "Hackathon",
-    "cancelled": false,
-    "file": "autumn-hackathon-2026.txt",
-    "description": "Fast-paced hackathon at the start of the autumn term with cross-team challenges."
-  },
-  {
-    "date": "2026-10-08",
-    "title": "Tech Leaders Panel",
-    "category": "Talk",
-    "cancelled": false,
-    "file": "tech-leaders-panel.txt",
-    "description": "WIS alumni in tech careers speak to Digital Leaders about pathways and opportunities."
-  },
-  {
-    "date": "2026-10-15",
-    "title": "Open Day Stall 2026",
-    "category": "Stall",
-    "cancelled": false,
-    "file": "open-day-stall-2026.txt",
-    "description": "Digital Leaders run an interactive tech stall at the WIS Open Day for prospective families."
-  },
-  {
-    "date": "2026-10-22",
-    "title": "Code Review Workshop",
-    "category": "Workshop",
-    "cancelled": false,
-    "file": "code-review-workshop.txt",
-    "description": "Learning to read, review, and improve code collaboratively as a team."
-  }
+  "inaugural-assembly.txt",
+  "digital-literacy-workshop.txt",
+  "hardware-basics-talk.txt",
+  "spreadsheet-skills.txt",
+  "wis-open-day-stall.txt",
+  "scratch-coding-intro.txt",
+  "year-end-reflection-talk.txt",
+  "new-year-kickoff.txt",
+  "google-workspace-deep-dive.txt",
+  "first-hackathon-planning.txt",
+  "canva-design-workshop.txt",
+  "first-wis-hackathon.txt",
+  "science-fair-tech-stall.txt",
+  "digital-photography-workshop.txt",
+  "tech-in-everyday-life.txt",
+  "accessibility-awareness.txt",
+  "end-of-year-showcase-2024.txt",
+  "peer-mentoring-launch.txt",
+  "summer-project-briefing.txt",
+  "pre-term-setup-session.txt",
+  "kick-off-assembly.txt",
+  "typing-speed-challenge.txt",
+  "automation-basics.txt",
+  "network-security-talk.txt",
+  "python-beginners-sprint.txt",
+  "digital-safety-day.txt",
+  "open-day-tech-stall.txt",
+  "coding-crash-course.txt",
+  "halloween-tech-quiz.txt",
+  "email-etiquette-talk.txt",
+  "ui-ux-design-sprint.txt",
+  "stem-fair-stall.txt",
+  "ai-and-ethics-panel.txt",
+  "year-end-showcase.txt",
+  "holiday-tech-gift-guide.txt",
+  "new-term-planning.txt",
+  "python-workshop-ii.txt",
+  "peer-support-drive.txt",
+  "cloud-computing-workshop.txt",
+  "web-development-intro.txt",
+  "valentine-s-tech-stall.txt",
+  "inter-school-hackathon.txt",
+  "research-symposium.txt",
+  "data-privacy-day-talk.txt",
+  "community-expo-stall.txt",
+  "robotics-demo.txt",
+  "hackathon-prep.txt",
+  "drone-technology-demo.txt",
+  "school-hackathon.txt",
+  "digital-art-workshop.txt",
+  "stem-careers-talk.txt",
+  "app-store-workshop.txt",
+  "digital-wellbeing-talk.txt",
+  "end-of-year-celebration.txt",
+  "digital-leaders-annual-report.txt",
+  "summer-coding-workshop.txt",
+  "new-year-device-setup.txt",
+  "kick-off-assembly-2025.txt",
+  "cybersecurity-awareness-month.txt",
+  "machine-learning-basics.txt",
+  "year-review-showcase.txt",
+  "spring-kick-off-workshop.txt",
+  "tech-trends-talk.txt",
+  "digital-inclusion-initiative.txt",
+  "device-drop-in-support.txt",
+  "spring-project-showcase.txt",
+  "ai-tools-in-education.txt",
+  "website-refresh-workshop.txt",
+  "digital-skills-peer-mentoring.txt",
+  "spring-hackathon-2026.txt",
+  "data-literacy-intro.txt",
+  "student-tech-innovation-showcase.txt",
+  "internet-safety-awareness.txt",
+  "app-design-challenge.txt",
+  "digital-skills-fair-stall.txt",
+  "debugging-bootcamp.txt",
+  "leadership-skills-panel.txt",
+  "school-wide-tech-survey.txt",
+  "game-design-introduction.txt",
+  "device-support-drive.txt",
+  "wis-tech-week-stall.txt",
+  "cybersecurity-competition.txt",
+  "year-7-tech-induction.txt",
+  "podcast-production-workshop.txt",
+  "design-showcase-exhibition.txt",
+  "end-of-year-hackathon.txt",
+  "community-tech-stall.txt",
+  "graduation-ceremony-tech-support.txt",
+  "year-end-showcase-2026.txt",
+  "summer-coding-club.txt",
+  "research-symposium-2026.txt",
+  "new-members-orientation.txt",
+  "back-to-school-tech-fair.txt",
+  "kick-off-assembly-2026.txt",
+  "python-fundamentals-workshop.txt",
+  "peer-support-launch.txt",
+  "digital-ethics-discussion.txt",
+  "autumn-hackathon-2026.txt",
+  "tech-leaders-panel.txt",
+  "open-day-stall-2026.txt",
+  "code-review-workshop.txt"
 ]

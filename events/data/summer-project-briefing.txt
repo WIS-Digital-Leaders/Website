@@ -1,1 +1,6 @@
+date: 2024-07-04
+title: Summer Project Briefing
+category: Initiative
+cancelled: false
+---
 Briefing for Digital Leaders taking on summer tech projects for the school.

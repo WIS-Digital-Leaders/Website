@@ -1,1 +1,6 @@
+date: 2024-05-02
+title: Tech in Everyday Life
+category: Talk
+cancelled: false
+---
 Student-led talk on how digital tools impact daily life and study habits.

@@ -1,1 +1,6 @@
+date: 2026-09-10
+title: Python Fundamentals Workshop
+category: Workshop
+cancelled: false
+---
 Refresher and advanced session on Python for returning members.

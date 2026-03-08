@@ -1,1 +1,6 @@
+date: 2024-09-26
+title: Network Security Talk
+category: Talk
+cancelled: false
+---
 Understanding how school networks work and how to stay safe on shared connections.

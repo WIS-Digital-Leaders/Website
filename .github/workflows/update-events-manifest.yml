@@ -1,0 +1,60 @@
+name: Update events manifest
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'events/data/*.txt'
+  workflow_dispatch:
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate events.json from .txt files
+        run: |
+          python3 - << 'PYEOF'
+          import pathlib, json
+
+          data_dir = pathlib.Path("events/data")
+          entries = []
+
+          for txt in data_dir.glob("*.txt"):
+              text = txt.read_text()
+              sep = text.find("---")
+              if sep == -1:
+                  print(f"WARNING: {txt.name} has no '---' separator — skipping")
+                  continue
+              front = text[:sep].strip()
+              date = None
+              for line in front.split("\n"):
+                  if line.startswith("date:"):
+                      date = line.split(":", 1)[1].strip()
+                      break
+              if date:
+                  entries.append((date, txt.name))
+              else:
+                  print(f"WARNING: {txt.name} has no 'date:' field — skipping")
+
+          entries.sort()
+          manifest = [name for _, name in entries]
+
+          with open(data_dir / "events.json", "w") as f:
+              json.dump(manifest, f, indent=2)
+              f.write("\n")
+
+          print(f"Wrote {len(manifest)} entries to events.json")
+          PYEOF
+
+      - name: Commit updated manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events/data/events.json
+          git diff --cached --quiet || git commit -m "chore: auto-update events.json manifest [skip ci]"
+          git push
