@@ -917,9 +917,12 @@ body.dark-theme .org-tree > ul > li > ul::before {
 .org-tree > ul > li > ul > li > ul {
   flex-direction: row;
   align-items: flex-start;
-  gap: 48px;
+  gap: 80px;
   padding-top: 96px;
   position: relative;
+}
+.org-tree > ul > li > ul > li > ul > li {
+  min-width: 200px;
 }
 .org-tree > ul > li > ul > li > ul::before {
   content: '';
@@ -950,15 +953,15 @@ body.dark-theme .org-tree > ul > li > ul::before {
 }
 .org-tree > ul > li > ul > li > ul > li:first-child::after {
   left: 50%;
-  right: -24px;
+  right: -40px;
 }
 .org-tree > ul > li > ul > li > ul > li:last-child::after {
   right: 50%;
-  left: -24px;
+  left: -40px;
 }
 .org-tree > ul > li > ul > li > ul > li:not(:first-child):not(:last-child)::after {
-  left: -24px;
-  right: -24px;
+  left: -40px;
+  right: -40px;
 }
 body.dark-theme .org-tree > ul > li > ul > li > ul > li::before,
 body.dark-theme .org-tree > ul > li > ul > li > ul > li::after,
