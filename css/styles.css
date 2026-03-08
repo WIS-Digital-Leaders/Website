@@ -920,7 +920,9 @@ body.dark-theme .org-tree > ul > li > ul::before {
   gap: 80px;
   padding-top: 96px;
   position: relative;
-  justify-content: center;
+}
+.org-tree > ul > li > ul > li > ul > li {
+  min-width: 200px;
 }
 .org-tree > ul > li > ul > li > ul::before {
   content: '';
