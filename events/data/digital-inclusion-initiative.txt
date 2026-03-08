@@ -1,6 +1,6 @@
 date: 2026-03-12
 title: Digital Inclusion Initiative
 category: Initiative
-cancelled: true
+cancelled: false
 ---
 Planning session for a school-wide drive to improve access to digital resources for all students.

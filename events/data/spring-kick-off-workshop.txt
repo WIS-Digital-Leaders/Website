@@ -1,6 +1,6 @@
 date: 2026-03-05
 title: Spring Kick-Off Workshop
 category: Workshop
-cancelled: true
+cancelled: false
 ---
 Hands-on session introducing new tools and projects for the spring term.
