@@ -1604,3 +1604,161 @@ body.dark-theme .search-result-card__desc {
 body.dark-theme .search-no-results {
   color: #aaa;
 }
+
+/* ── Mobile responsive improvements ────────────────────
+   Tablets and smaller (≤768 px)
+   ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Slightly smaller logos so the navbar stays compact */
+  .navbar .brand img {
+    height: 32px;
+  }
+
+  /* Constrain the search input so it never overflows */
+  .search-input {
+    width: 90px;
+  }
+
+  /* Footer columns → single column */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Recruitment highlights → single column */
+  .recruit-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Small phones (≤480 px)
+   ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Navbar: tighten up spacing between action items */
+  .actions {
+    gap: 0.5rem;
+  }
+
+  /* Even smaller logos to give search room */
+  .navbar .brand img {
+    height: 28px;
+  }
+
+  /* Compact search input on very small screens */
+  .search-input {
+    width: 70px;
+    font-size: 0.85rem;
+    padding: 6px 4px;
+  }
+
+  /* Hero: smaller heading */
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Hero CTA buttons: stack vertically and fill available width */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+
+  /* Carousel: near-full-width cards on small phones */
+  .carousel-card {
+    flex: 0 0 calc(100vw - 6rem);
+  }
+
+  /* Recruitment hero: smaller heading */
+  .recruit-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  /* Events controls: stack vertically */
+  .events-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Events grid controls row: stack vertically */
+  .grid-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Footer bottom: stack copyright and back-to-top */
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  /* Org-tree section: hint that the chart scrolls sideways */
+  .org-tree-section::before {
+    content: "← Swipe to explore →";
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ── Nav drawer search ───────────────────────────────── */
+.nav-drawer__search {
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid #ddd;
+}
+.drawer-search-form {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.drawer-search-form:focus-within {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.15);
+}
+.drawer-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--text);
+  min-width: 0;
+}
+.drawer-search-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+  border-radius: 0;
+}
+.drawer-search-btn:hover,
+.drawer-search-btn:focus {
+  background: var(--brand-2);
+  outline: none;
+}
+
+/* Dark theme — drawer search */
+body.dark-theme .nav-drawer__search {
+  border-top-color: #333;
+}
+body.dark-theme .drawer-search-form {
+  border-color: #444;
+}
+body.dark-theme .drawer-search-input {
+  color: #eee;
+  background: transparent;
+}

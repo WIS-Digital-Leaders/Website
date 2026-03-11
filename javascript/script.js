@@ -245,6 +245,7 @@ function doSearch(query) {
 
 let _searchDropdown = null;
 let _searchDebounce = null;
+let _activeSearchForm = null;
 
 function getOrCreateDropdown() {
   if (!_searchDropdown) {
@@ -259,13 +260,19 @@ function getOrCreateDropdown() {
 }
 
 function positionDropdown() {
-  const form = document.querySelector(".search");
+  const form = _activeSearchForm || document.querySelector(".search");
   const dropdown = document.getElementById("search-dropdown");
   if (!form || !dropdown) return;
   const rect = form.getBoundingClientRect();
   dropdown.style.top = rect.bottom + 8 + "px";
-  dropdown.style.right = window.innerWidth - rect.right + "px";
-  dropdown.style.left = "auto";
+  const rightGap = window.innerWidth - rect.right;
+  if (rightGap >= 8) {
+    dropdown.style.right = rightGap + "px";
+    dropdown.style.left = "auto";
+  } else {
+    dropdown.style.left = Math.max(8, rect.left) + "px";
+    dropdown.style.right = "auto";
+  }
 }
 
 function openDropdown(results, query) {
@@ -313,40 +320,64 @@ function closeDropdown() {
   if (dropdown) dropdown.classList.remove("is-open");
 }
 
-// Attach search behaviour
-const searchForm = document.querySelector(".search");
-const searchInput = searchForm && searchForm.querySelector(".search-input");
-
-if (searchInput) {
-  searchInput.addEventListener("input", () => {
+// Attach search behaviour to an input/form pair
+function bindSearchInput(input, form) {
+  if (!input || !form) return;
+  input.addEventListener("focus", () => {
+    _activeSearchForm = form;
+    const q = input.value.trim();
+    if (q.length >= 2) openDropdown(doSearch(q), q);
+  });
+  input.addEventListener("input", () => {
+    _activeSearchForm = form;
     clearTimeout(_searchDebounce);
-    const q = searchInput.value.trim();
+    const q = input.value.trim();
     if (q.length < 2) { closeDropdown(); return; }
     _searchDebounce = setTimeout(() => openDropdown(doSearch(q), q), 180);
   });
-
-  searchInput.addEventListener("focus", () => {
-    const q = searchInput.value.trim();
-    if (q.length >= 2) openDropdown(doSearch(q), q);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { closeDropdown(); input.blur(); }
   });
-
-  searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeDropdown(); searchInput.blur(); }
-  });
-}
-
-if (searchForm) {
-  searchForm.addEventListener("submit", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const q = (searchInput && searchInput.value.trim()) || "";
+    _activeSearchForm = form;
+    const q = input.value.trim();
     if (q.length >= 2) openDropdown(doSearch(q), q);
     else closeDropdown();
   });
 }
 
+// Attach search behaviour
+const searchForm = document.querySelector(".search");
+const searchInput = searchForm && searchForm.querySelector(".search-input");
+bindSearchInput(searchInput, searchForm);
+
+// ── Drawer search (accessible on all screen sizes) ────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  const drawer = document.getElementById("navDrawer");
+  if (!drawer) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "nav-drawer__search";
+  wrapper.innerHTML =
+    '<form class="drawer-search-form" role="search" aria-label="Site search">' +
+    '<input class="drawer-search-input" type="search" placeholder="Search…" aria-label="Search">' +
+    '<button class="drawer-search-btn" type="submit" aria-label="Submit search">🔍</button>' +
+    "</form>";
+  drawer.appendChild(wrapper);
+
+  const drawerSearchForm = wrapper.querySelector(".drawer-search-form");
+  const drawerSearchInput = wrapper.querySelector(".drawer-search-input");
+  bindSearchInput(drawerSearchInput, drawerSearchForm);
+});
+
 // Close dropdown on outside click
 document.addEventListener("click", (e) => {
-  if (!e.target.closest(".search") && !e.target.closest("#search-dropdown")) {
+  if (
+    !e.target.closest(".search") &&
+    !e.target.closest(".drawer-search-form") &&
+    !e.target.closest("#search-dropdown")
+  ) {
     closeDropdown();
   }
 });
