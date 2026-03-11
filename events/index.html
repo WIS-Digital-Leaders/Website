@@ -95,56 +95,6 @@
     body.dark-theme .badge--upcoming  { background: #1a2840; color: #74c0fc; }
     body.dark-theme .badge--cancelled { background: #2d2510; color: #ffc107; }
 
-    /* ── "Add event" guide banner ─────────────────────── */
-    .add-event-banner {
-      max-width: var(--max);
-      margin: var(--space) auto;
-      padding: 0 var(--space);
-    }
-    .add-event-banner details {
-      background: #f0f8ff;
-      border: 1.5px solid #b0d4ff;
-      border-radius: 10px;
-      padding: 0.75rem 1.25rem;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    body.dark-theme .add-event-banner details {
-      background: #1a2840;
-      border-color: #3355aa;
-    }
-    .add-event-banner summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--brand);
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .add-event-banner summary::-webkit-details-marker { display: none; }
-    .add-event-banner summary::before {
-      content: '▶';
-      font-size: 0.65rem;
-      transition: transform 0.2s ease;
-    }
-    .add-event-banner details[open] summary::before { transform: rotate(90deg); }
-    .add-event-banner pre {
-      background: #e8f4ff;
-      border-radius: 6px;
-      padding: 0.75rem 1rem;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-break: break-word;
-      line-height: 1.5;
-    }
-    body.dark-theme .add-event-banner pre { background: #12243a; }
-    .add-event-banner ol {
-      margin: 0.5rem 0 0 1.2rem;
-      line-height: 2;
-    }
 
     /* ── Jump-to-today button ─────────────────────────── */
     .btn-today {
@@ -343,25 +293,6 @@
     <p class="carousel-empty" id="carousel-empty" hidden></p>
     <p class="carousel-empty" id="grid-empty" hidden></p>
 
-    <!-- How to add new events -->
-    <div class="add-event-banner">
-      <details>
-        <summary>➕ How to add a new event</summary>
-        <p>Adding a new event is <strong>one step only</strong> — no editing of <code>events.json</code> required.</p>
-        <ol>
-          <li>Create a new <code>.txt</code> file in <code>events/data/</code> — use the event title as the filename (lowercase, hyphens instead of spaces, e.g. <code>my-new-event.txt</code>).</li>
-          <li>Put the event metadata as frontmatter at the top of the file, followed by <code>---</code>, then the description:</li>
-        </ol>
-        <pre>date: YYYY-MM-DD
-title: My New Event
-category: Workshop
-cancelled: false
----
-A short description of the event.</pre>
-        <p style="margin-top:0.6rem">Push the file — a GitHub Actions workflow automatically rescans all <code>.txt</code> files and rebuilds <code>events.json</code>. ✅</p>
-        <p style="margin-top:0.4rem">Categories: <strong>Workshop · Talk · Initiative · Support · Showcase · Hackathon · Stall</strong></p>
-      </details>
-    </div>
   </main>
 
   <!-- Footer -->
