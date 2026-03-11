@@ -808,6 +808,9 @@ body.dark-theme .today-divider__label {
   padding: 0 var(--space);
   overflow-x: auto;
 }
+.branch-descriptions {
+  padding-bottom: calc(var(--space-lg) * 2);
+}
 .org-tree {
   display: inline-block;
   min-width: 100%;
