@@ -1,0 +1,6 @@
+date: 2026-03-14
+title: WIS Bazzar 
+category: Stall
+cancelled: false
+---
+This is just an example event that I am trying to put in here
